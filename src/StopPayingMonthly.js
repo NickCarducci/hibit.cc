@@ -37,6 +37,7 @@ class StopPayingMonthly extends React.Component {
             <div
               onClick={this.props.setWhy}
               style={{
+                zIndex: "1",
                 userSelect: "none",
                 backgroundColor: "rgb(65, 90, 159)",
                 color: "white",
