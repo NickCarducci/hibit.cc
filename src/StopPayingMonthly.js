@@ -85,24 +85,29 @@ class StopPayingMonthly extends React.Component {
             <br />
             15:{" "}
             <span
-              //id="load balancing"
-              onClick={() =>
-                this.setState({
-                  chosenFeature:
-                    this.state.chosenFeature !== "load balancing" &&
-                    "load balancing"
-                })
-              }
               style={{
-                userSelect: "none",
-                cursor: "pointer",
-
+                color: "chocolate",
                 textDecoration:
-                  this.state.chosenFeature === "load balancing" && "underline",
-                ...cftextgradientstyle
+                  this.state.chosenFeature === "load balancing" && "underline"
               }}
             >
-              load balancing and DDOS
+              <span
+                //id="load balancing"
+                onClick={() =>
+                  this.setState({
+                    chosenFeature:
+                      this.state.chosenFeature !== "load balancing" &&
+                      "load balancing"
+                  })
+                }
+                style={{
+                  userSelect: "none",
+                  cursor: "pointer",
+                  ...cftextgradientstyle
+                }}
+              >
+                load balancing, DDOS protection, and global reach
+              </span>
             </span>
             <br />
             30: $8/mo
