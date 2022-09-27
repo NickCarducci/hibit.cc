@@ -22,6 +22,13 @@ class StopPayingMonthly extends React.Component {
       WebkitBackgroundClip: "text",
       WebkitTextFillColor: "transparent"
     };
+    var goingprice = String((200 + 15) / this.state.served);
+    const decimal = goingprice.lastIndexOf(".");
+    //console.log(decimal);
+    goingprice =
+      Number(
+        goingprice.substring(0, (decimal > 0 ? decimal : goingprice.length) + 1)
+      ) + 1;
     return (
       <div style={{ width: "100%", maxWidth: "600px" }}>
         <div style={{ width: "100%", position: "relative" }}>
@@ -110,11 +117,29 @@ class StopPayingMonthly extends React.Component {
               </span>
             </span>
             <br />
-            30: $8/mo
             <br />
-            45: $4/mo
-            <br />
-            60: $2/mo
+            <div style={{ width: "200px" }}>
+              <div style={{ float: "right" }}>
+                <span
+                  style={{ color: this.state.served > 27 ? "black" : "grey" }}
+                >
+                  27: $8/mo
+                </span>
+                <br />
+                <span
+                  style={{ color: this.state.served > 44 ? "black" : "grey" }}
+                >
+                  44: $5/mo
+                </span>
+                <br />
+                <span
+                  style={{ color: this.state.served > 72 ? "black" : "grey" }}
+                >
+                  72: $2/mo
+                </span>
+              </div>
+            </div>
+            customers
             <br />(
             <b
               style={{
@@ -130,7 +155,8 @@ class StopPayingMonthly extends React.Component {
             >
               served
             </a>
-            ).
+            ).{space}${this.state.served < 15 ? "15" : goingprice}
+            /month
             <br />
             <br />
             <i>Scale down anyime</i>
@@ -149,7 +175,8 @@ class StopPayingMonthly extends React.Component {
             >
               retrieve and delete
             </span>{" "}
-            the instance on the $150 device that you used.
+            the instance on{space}
+            <i>the $150 device that you used</i>.
             <br />
             <br />
             <span style={{ textDecoration: "underline" }}>support</span>
@@ -182,6 +209,7 @@ class StopPayingMonthly extends React.Component {
             <span style={cftextgradientstyle}>referer origin anywhere</span>)
           </div>
         )}
+        {!this.state.chooseFeature && <i style={{ color: "grey" }}>nothing</i>}
       </div>
     );
   }
