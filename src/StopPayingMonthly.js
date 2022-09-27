@@ -101,7 +101,7 @@ class StopPayingMonthly extends React.Component {
                   })
                 }
                 style={{
-                  userSelect: "none",
+                  userSelect: "none", //pyramid discount technical
                   cursor: "pointer",
                   ...cftextgradientstyle
                 }}
@@ -121,7 +121,14 @@ class StopPayingMonthly extends React.Component {
             >
               {this.state.served}
             </b>
-            {space}served).
+            {space}
+            <a
+              style={{ color: "black" }}
+              href="https://www.quora.com/unanswered/Is-a-pyramid-scheme-only-viable-when-there-are-service-worker-machine-rents-making-prices-higher-than-technological-competition"
+            >
+              served
+            </a>
+            ).
             <br />
             <br />
             <i>Scale down anyime</i>
@@ -152,7 +159,11 @@ class StopPayingMonthly extends React.Component {
           <div>
             GET: (referer origin anywhere)
             <br />
-            POST: (<span style={{ color: "blue" }}>only your select{/*certain*/} domains</span>)
+            POST: (
+            <span style={{ color: "blue" }}>
+              only your select{/*certain */} domains
+            </span>
+            )
           </div>
         )}
         {this.state.chosenFeature === "retrieve and delete" && (
