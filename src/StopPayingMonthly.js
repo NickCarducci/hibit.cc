@@ -152,7 +152,7 @@ class StopPayingMonthly extends React.Component {
           <div>
             GET: (referer origin anywhere)
             <br />
-            POST: (<span style={{ color: "blue" }}>only certain domains</span>)
+            POST: (<span style={{ color: "blue" }}>only your select{/*certain*/} domains</span>)
           </div>
         )}
         {this.state.chosenFeature === "retrieve and delete" && (
