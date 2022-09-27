@@ -112,7 +112,9 @@ class StopPayingMonthly extends React.Component {
             <br />
             30: $8/mo
             <br />
-            60: $4/mo
+            45: $4/mo
+            <br />
+            60: $2/mo
             <br />(
             <b
               style={{
