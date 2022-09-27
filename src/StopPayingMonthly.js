@@ -135,7 +135,7 @@ class StopPayingMonthly extends React.Component {
                 <span
                   style={{ color: this.state.served > 72 ? "black" : "grey" }}
                 >
-                  72: $2/mo
+                  108: $2/mo
                 </span>
               </div>
             </div>
