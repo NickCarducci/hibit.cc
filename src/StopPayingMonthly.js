@@ -85,7 +85,7 @@ class StopPayingMonthly extends React.Component {
                 fontSize: "12px"
               }}
             >
-              pay for business cloudflare $200/month with 15{space}
+              pay for business cloudflare/mbps $200/month with 15{space}
               <a href="https://www.reddit.com/r/selfhosted/comments/xjl7lz/has_anyone_cloudflared_a_serverless_competitor_to/">
                 renters
               </a>
@@ -218,7 +218,30 @@ class StopPayingMonthly extends React.Component {
           <div>
             <span style={{ textDecoration: "underline" }}>support</span>
             <br />
-            latest release node.js (<i>planning ...firebase </i>)
+            latest release node.js (
+            <i
+              style={{ cursor: "pointer" }}
+              onBlur={() => this.setState({ hoveringplanning: false })}
+              onMouseEnter={() =>
+                this.setState({ hoveringplanning: true }, () => {
+                  clearTimeout(this.hoveringplanningtimeout);
+                  this.hoveringplanningtimeout = setTimeout(() => {
+                    this.setState({ hoveringplanning: false });
+                  }, 1200);
+                })
+              }
+            >
+              <a href="https://blog.cloudflare.com/developer-spotlight-tejas-metha-cclip/">
+                firebase
+              </a>
+            </i>
+            )
+            {this.state.hoveringplanning && (
+              <span style={{ color: "grey" }}>
+                {" "}
+                - Cloudflare Service Workers Firebase Identity Provider
+              </span>
+            )}
           </div>
         )}
         {this.state.chosenFeature === "caching" && (
@@ -248,6 +271,7 @@ class StopPayingMonthly extends React.Component {
         )}
         <br />
         <i style={{ color: "grey" }}>nothing</i>
+        {/*Security Assertion Markup Language (SAML) */}
       </div>
     );
   }
