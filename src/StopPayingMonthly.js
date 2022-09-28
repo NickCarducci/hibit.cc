@@ -22,6 +22,7 @@ class StopPayingMonthly extends React.Component {
       WebkitBackgroundClip: "text",
       WebkitTextFillColor: "transparent"
     };
+    var mbps = 12 * this.state.served;
     var goingprice = String((200 + 15) / this.state.served);
     const decimal = goingprice.lastIndexOf(".");
     //console.log(decimal);
@@ -58,7 +59,37 @@ class StopPayingMonthly extends React.Component {
               why?
             </div>
           </div>
-          <div style={{ width: "100%", opacity: ".6" }}>
+          <div
+            style={{
+              maxWidth: "100%",
+              opacity: ".6",
+              position: "relative",
+              width: "min-content"
+            }}
+          >
+            <div
+              style={{
+                right: "0px",
+                position: "absolute",
+                width: "50px",
+                fontSize: "12px"
+              }}
+            >
+              as low as $1/mo!
+            </div>
+            <div
+              style={{
+                right: "-80px",
+                position: "absolute",
+                width: "50px",
+                fontSize: "12px"
+              }}
+            >
+              pay for business cloudflare $200/month with 15{space}
+              <a href="https://www.reddit.com/r/selfhosted/comments/xjl7lz/has_anyone_cloudflared_a_serverless_competitor_to/">
+                renters
+              </a>
+            </div>
             <a
               href="https://commie.dev"
               style={{
@@ -68,6 +99,7 @@ class StopPayingMonthly extends React.Component {
             >
               stop paying monthly
             </a>
+            {space}
             <br />
             <i>Bringing outright back</i>
             <br />
@@ -133,7 +165,7 @@ class StopPayingMonthly extends React.Component {
                 </span>
                 <br />
                 <span
-                  style={{ color: this.state.served > 72 ? "black" : "grey" }}
+                  style={{ color: this.state.served > 108 ? "black" : "grey" }}
                 >
                   108: $2/mo
                 </span>
@@ -175,15 +207,20 @@ class StopPayingMonthly extends React.Component {
             >
               retrieve and delete
             </span>{" "}
-            the instance on{space}
-            <i>the $150 device that you used</i>.
+            the instance
+            <br />
+            <i>on the $150 device that you used</i>.
             <br />
             <br />
-            <span style={{ textDecoration: "underline" }}>support</span>
-            <br />
-            latest release node.js (<i>planning</i>)
           </div>
         </div>
+        {!this.state.chosenFeature && (
+          <div>
+            <span style={{ textDecoration: "underline" }}>support</span>
+            <br />
+            latest release node.js (<i>planning ...firebase </i>)
+          </div>
+        )}
         {this.state.chosenFeature === "caching" && (
           <div>
             GET: (referer origin anywhere)
@@ -209,7 +246,8 @@ class StopPayingMonthly extends React.Component {
             <span style={cftextgradientstyle}>referer origin anywhere</span>)
           </div>
         )}
-        {!this.state.chooseFeature && <i style={{ color: "grey" }}>nothing</i>}
+        <br />
+        <i style={{ color: "grey" }}>nothing</i>
       </div>
     );
   }
