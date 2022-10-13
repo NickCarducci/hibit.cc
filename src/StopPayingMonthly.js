@@ -39,16 +39,36 @@ class StopPayingMonthly extends React.Component {
         <div style={{ width: "100%", position: "relative" }}>
           <div
             style={{
-              //zIndex: "1",
+              //zIndex: "1", i'd rather my foot in your mouth than an A+
               height: "100%",
               width: "100%",
               position: "absolute",
               backgroundColor: "rgba(80,30,160,.2)"
             }}
           >
-            <div
-              onClick={this.props.setWhy}
+            <span
+              onMouseEnter={
+                () =>
+                  this.setState(
+                    {
+                      firewallPlustimeout:
+                        this.state.firewallPlustimeout === true
+                          ? 1
+                          : !this.state.firewallPlustimeout
+                    },
+                    () => {
+                      clearTimeout(this.firewallPlustimeout);
+                      this.firewallPlustimeout = setTimeout(() => {
+                        this.setState({ firewallPlustimeout: false });
+                      }, 5000);
+                    }
+                  ) //scopebook
+              }
               style={{
+                transition: ".3s ease-out",
+                justifyContent: "space-between",
+                maxWidth: "max-content",
+                width: "calc(100% - 50px)",
                 zIndex: "1",
                 userSelect: "none",
                 backgroundColor: "rgb(65, 90, 159)",
@@ -56,12 +76,39 @@ class StopPayingMonthly extends React.Component {
                 borderRadius: "10px",
                 padding: "4px 6px",
                 cursor: "pointer",
+                display: "flex",
                 position: "fixed",
                 right: "20px"
               }}
             >
-              why?
-            </div>
+              {this.state.firewallPlustimeout === 1 ? (
+                <a
+                  style={{ color: "white" }}
+                  href="https://github.com/w3c/strategy/issues/358"
+                >
+                  all-methods-local-proxy
+                </a>
+              ) : (
+                this.state.firewallPlustimeout && (
+                  <a
+                    style={{ color: "white" }}
+                    href="https://www.nginx.com/learn/waf-web-application-firewall/"
+                  >
+                    Config Web Firewall
+                  </a>
+                )
+              )}
+
+              <span
+                style={{
+                  paddingLeft: "6px"
+                }}
+                onClick={this.props.setWhy}
+              >
+                {this.state.firewallPlustimeout && `  `}
+                why?
+              </span>
+            </span>
             <div
               onMouseEnter={
                 () =>
