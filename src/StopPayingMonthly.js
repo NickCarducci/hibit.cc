@@ -113,6 +113,41 @@ class StopPayingMonthly extends React.Component {
             <div
               onMouseEnter={
                 () =>
+                  this.setState({ runscreenshottimeout: true }, () => {
+                    clearTimeout(this.runscreenshottimeout);
+                    this.runscreenshottimeout = setTimeout(() => {
+                      this.setState({ runscreenshottimeout: false });
+                    }, 5000);
+                  }) //scopebook
+              }
+              onClick={this.props.setWhy}
+              style={{
+                zIndex: "1",
+                userSelect: "none",
+                backgroundColor: "rgb(65, 90, 159)",
+                color: "white",
+                borderRadius: "10px",
+                padding: "4px 6px",
+                cursor: "pointer",
+                position: "fixed",
+                right: "20px",
+                bottom: "60px"
+              }}
+            >
+              {this.state.runscreenshottimeout && (
+                <a
+                  style={{ color: "white" }}
+                  href="https://www.lifewire.com/take-screenshot-using-dev-tools-on-google-chrome-5097913"
+                >
+                  run command {">"} screenshot
+                </a>
+              )}
+              {space}
+              &#128247;
+            </div>
+            <div
+              onMouseEnter={
+                () =>
                   this.setState({ designUItimeout: true }, () => {
                     clearTimeout(this.designUItimeout);
                     this.designUItimeout = setTimeout(() => {
