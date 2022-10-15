@@ -3,6 +3,7 @@ import React from "react";
 class StopPayingMonthly extends React.Component {
   state = { served: 0 };
   componentWillUnmount = () => {
+    clearTimeout(this.runscreenshottimeout);
     clearTimeout(this.firewallPlustimeout);
     clearTimeout(this.designUItimeout);
     clearTimeout(this.nodeDevtimeout);
