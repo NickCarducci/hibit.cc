@@ -171,12 +171,16 @@ class StopPayingMonthly extends React.Component {
               }}
             >
               {this.state.designUItimeout && (
-                <a
-                  style={{ color: "white" }}
-                  href="https://github.com/NickCarducci/commie.dev"
-                >
-                  boiler repo
-                </a>
+                <span>
+                  Monokai 10px PreviewEdit off (change file name if freeze)
+                  {space}
+                  <a
+                    style={{ color: "white" }}
+                    href="https://github.com/NickCarducci/commie.dev"
+                  >
+                    boiler repo
+                  </a>
+                </span>
               )}
               {space}
               &image;{/**how do I set up a react app (commie.dev + netlify) */}
