@@ -6,6 +6,7 @@ class StopPayingMonthly extends React.Component {
     clearTimeout(this.runscreenshottimeout);
     clearTimeout(this.firewallPlustimeout);
     clearTimeout(this.designUItimeout);
+    clearTimeout(this.anontimeout);
     clearTimeout(this.nodeDevtimeout);
   };
   render() {
@@ -111,6 +112,47 @@ class StopPayingMonthly extends React.Component {
                 why?
               </span>
             </span>
+
+            <div
+              onMouseEnter={
+                () =>
+                  this.setState({ anontimeout: true }, () => {
+                    clearTimeout(this.anontimeout);
+                    this.anontimeout = setTimeout(() => {
+                      this.setState({ anontimeout: false });
+                    }, 5000);
+                  }) //scopebook
+              }
+              onClick={this.props.setWhy}
+              style={{
+                zIndex: "1",
+                userSelect: "none",
+                backgroundColor: "rgb(65, 90, 159)",
+                color: "white",
+                borderRadius: "10px",
+                padding: "4px 6px",
+                cursor: "pointer",
+                position: "fixed",
+                right: "20px",
+                bottom: "100px"
+              }}
+            >
+              {this.state.anontimeout && (
+                <span>
+                  <a
+                    style={{ color: "white" }}
+                    href="https://codesandbox.io/s/react-local-firebase-i7l8qe?file=/src/App.js"
+                  >
+                    auth repo
+                  </a>
+                </span>
+              )}
+              {space}
+              <span role="img" aria-label="masks">
+                🎭
+              </span>
+              {/**how do I set up a react app (commie.dev + netlify) */}
+            </div>
             <div
               onMouseEnter={
                 () =>
