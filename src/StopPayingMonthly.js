@@ -140,7 +140,7 @@ class StopPayingMonthly extends React.Component {
                 bottom: "190px"
               }}
             >
-              {this.state.anontimeout && (
+              {this.state.sidemenutimeout && (
                 <span>
                   <a
                     style={{ color: "white" }}
@@ -181,7 +181,7 @@ class StopPayingMonthly extends React.Component {
                 bottom: "140px"
               }}
             >
-              {this.state.anontimeout && (
+              {this.state.frametimeout && (
                 <span>
                   <a
                     style={{ color: "white" }}
@@ -565,3 +565,4 @@ class StopPayingMonthly extends React.Component {
   }
 }
 export default StopPayingMonthly;
+
