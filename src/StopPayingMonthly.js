@@ -8,6 +8,8 @@ class StopPayingMonthly extends React.Component {
     clearTimeout(this.designUItimeout);
     clearTimeout(this.anontimeout);
     clearTimeout(this.nodeDevtimeout);
+    clearTimeout(this.frametimeout);
+    clearTimeout(this.sidemenutimeout);
   };
   render() {
     const space = " ";
@@ -112,6 +114,89 @@ class StopPayingMonthly extends React.Component {
                 why?
               </span>
             </span>
+
+            <div
+              onMouseEnter={
+                () =>
+                  this.setState({ sidemenutimeout: true }, () => {
+                    clearTimeout(this.sidemenutimeout);
+                    this.sidemenutimeout = setTimeout(() => {
+                      this.setState({ sidemenutimeout: false });
+                    }, 5000);
+                  }) //scopebook
+              }
+              onClick={this.props.setWhy}
+              style={{
+                borderLeft: "5px solid red",
+                zIndex: "1",
+                userSelect: "none",
+                backgroundColor: "rgb(65, 90, 159)",
+                color: "white",
+                borderRadius: "10px",
+                padding: "4px 6px",
+                cursor: "pointer",
+                position: "fixed",
+                right: "20px",
+                bottom: "190px"
+              }}
+            >
+              {this.state.anontimeout && (
+                <span>
+                  <a
+                    style={{ color: "white" }}
+                    href="https://codesandbox.io/s/vau-money-jwi5k?file=/src/Frame.js"
+                  >
+                    sidemenu repo
+                  </a>
+                </span>
+              )}
+              {space}
+              <span role="img" aria-label="masks">
+                🎭
+              </span>
+              {/**how do I set up a react app (commie.dev + netlify) */}
+            </div>
+            <div
+              onMouseEnter={
+                () =>
+                  this.setState({ frametimeout: true }, () => {
+                    clearTimeout(this.frametimeout);
+                    this.frametimeout = setTimeout(() => {
+                      this.setState({ frametimeout: false });
+                    }, 5000);
+                  }) //scopebook
+              }
+              onClick={this.props.setWhy}
+              style={{
+                border: "5px solid red",
+                zIndex: "1",
+                userSelect: "none",
+                backgroundColor: "rgb(65, 90, 159)",
+                color: "white",
+                borderRadius: "10px",
+                padding: "4px 6px",
+                cursor: "pointer",
+                position: "fixed",
+                right: "20px",
+                bottom: "140px"
+              }}
+            >
+              {this.state.anontimeout && (
+                <span>
+                  <a
+                    style={{ color: "white" }}
+                    href="https://codesandbox.io/s/scopebook-timeclock-yxv61i?file=/src/Frame.js"
+                  >
+                    frame repo
+                  </a>
+                </span>
+              )}
+              {space}
+              <span role="img" aria-label="masks">
+                🎭
+              </span>
+              {/**how do I set up a react app (commie.dev + netlify) */}
+            </div>
 
             <div
               onMouseEnter={
