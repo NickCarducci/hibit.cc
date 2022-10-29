@@ -194,8 +194,13 @@ class StopPayingMonthly extends React.Component {
                     style={{ color: "white" }}
                     href="https://answers.netlify.com/t/support-guide-how-can-i-receive-emails-on-my-domain/178"
                   >
-                    OLD TTL "propogation" / 3600 (icloud+/migadu)
+                    OLD TTL "propogation"
                   </a>
+                  {space}/ 3600 (
+                  <a href="https://answers.netlify.com/t/setting-icloud-up-with-my-domain-spf-issue/49162/7?u=nickcarducci">
+                    icloud+
+                  </a>
+                  /migadu)
                 </span>
               )}
               {space}
@@ -693,4 +698,3 @@ class StopPayingMonthly extends React.Component {
   }
 }
 export default StopPayingMonthly;
-
