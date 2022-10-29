@@ -11,6 +11,8 @@ class StopPayingMonthly extends React.Component {
     clearTimeout(this.frametimeout);
     clearTimeout(this.sidemenutimeout);
     clearTimeout(this.traptimeout);
+    clearTimeout(this.jstimeout);
+    clearTimeout(this.emailtimeout);
   };
   render() {
     const space = " ";
@@ -115,7 +117,99 @@ class StopPayingMonthly extends React.Component {
                 why?
               </span>
             </span>
-
+            <div
+              onMouseEnter={
+                () =>
+                  this.setState({ jstimeout: true }, () => {
+                    clearTimeout(this.jstimeout);
+                    this.jstimeout = setTimeout(() => {
+                      this.setState({ jstimeout: false });
+                    }, 5000);
+                  }) //scopebook
+              }
+              onClick={this.props.setWhy}
+              style={{
+                zIndex: "1",
+                userSelect: "none",
+                backgroundColor: "rgb(65, 90, 159)",
+                color: "white",
+                borderRadius: "10px",
+                padding: "4px 0px",
+                cursor: "pointer",
+                position: "fixed",
+                right: "20px",
+                bottom: "310px"
+              }}
+            >
+              {this.state.jstimeout && (
+                <span>
+                  <a
+                    style={{ color: "white" }}
+                    href="https://github.com/nickcarducci"
+                  >
+                    new Promise(r={">"} r(JSON.stringify))
+                  </a>
+                </span>
+              )}
+              {space}
+              <span
+                style={{
+                  transform: "translateY(20px)",
+                  fontSize: "40px"
+                }}
+              >
+                JS
+              </span>
+              {/**how do I set up a react app (commie.dev + netlify) */}
+            </div>
+            <div
+              onMouseEnter={
+                () =>
+                  this.setState({ emailtimeout: true }, () => {
+                    clearTimeout(this.emailtimeout);
+                    this.emailtimeout = setTimeout(() => {
+                      this.setState({ emailtimeout: false });
+                    }, 5000);
+                  }) //scopebook
+              }
+              onClick={this.props.setWhy}
+              style={{
+                zIndex: "1",
+                userSelect: "none",
+                backgroundColor: "rgb(65, 90, 159)",
+                color: "white",
+                borderRadius: "10px",
+                padding: "4px 0px",
+                cursor: "pointer",
+                position: "fixed",
+                right: "20px",
+                bottom: "270px",
+                height: "20px",
+                minWidth: "30px"
+              }}
+            >
+              {this.state.emailtimeout && (
+                <span>
+                  <a
+                    style={{ color: "white" }}
+                    href="https://answers.netlify.com/t/support-guide-how-can-i-receive-emails-on-my-domain/178"
+                  >
+                    OLD TTL "propogation" / 3600 (icloud+/migadu)
+                  </a>
+                </span>
+              )}
+              {space}
+              <span
+                style={{
+                  top: "-15px",
+                  position: "absolute",
+                  fontSize: "40px"
+                }}
+              >
+                &#9993;
+              </span>
+              {/**how do I set up a react app (commie.dev + netlify) */}
+            </div>
             <div
               onMouseEnter={
                 () =>
@@ -143,7 +237,8 @@ class StopPayingMonthly extends React.Component {
               {this.state.traptimeout && (
                 <span>
                   <a style={{ color: "white" }} href="https://codesandbox.io/">
-                    inspect hidden divs / rename sandbox loops
+                    inspect hidden divs / rename sandbox loops /
+                    `prettier-ignore` one line
                   </a>
                 </span>
               )}
@@ -231,7 +326,6 @@ class StopPayingMonthly extends React.Component {
               </span>
               {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
-
             <div
               onMouseEnter={
                 () =>
@@ -599,3 +693,4 @@ class StopPayingMonthly extends React.Component {
   }
 }
 export default StopPayingMonthly;
+
