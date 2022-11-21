@@ -165,6 +165,154 @@ class StopPayingMonthly extends React.Component {
             <div
               onMouseEnter={
                 () =>
+                  this.setState({ crypttimeout: true }, () => {
+                    clearTimeout(this.crypttimeout);
+                    this.crypttimeout = setTimeout(() => {
+                      this.setState({ crypttimeout: false });
+                    }, 5000);
+                  }) //scopebook
+              }
+              onClick={this.props.setWhy}
+              style={{
+                zIndex: "1",
+                userSelect: "none",
+                backgroundColor: "rgb(65, 90, 159)",
+                color: "white",
+                borderRadius: "10px",
+                padding: "4px 0px",
+                cursor: "pointer",
+                position: "fixed",
+                right: "20px",
+                bottom: "400px"
+              }}
+            >
+              {this.state.crypttimeout && (
+                <span>
+                  <a
+                    style={{ color: "white" }}
+                    href="https://vaults.quora.com/Even-with-local-private-keys-cant-the-geth-Ethereum-network-store-developer-transfer-unrecoverable-wallet-funds-to-a"
+                  >
+                    ?
+                  </a>
+                  {space}EIP/
+                  <a
+                    style={{ color: "white" }}
+                    href="https://eips.ethereum.org/EIPS/eip-1155"
+                  >
+                    ERC
+                  </a>
+                  {space}token{space}
+                  <a
+                    style={{ color: "white" }}
+                    href="https://anchor.fm/micro-theory/episodes/Strategic-Voting-with-a-potential-network-effect-and-new-antifinance-alternative-e1qvulq"
+                  >
+                    rules
+                  </a>
+                </span>
+              )}
+              {space}
+              <span
+                style={{
+                  transform: "translateY(20px)"
+                }}
+              >
+                crypt
+              </span>
+            </div>
+            <div
+              onMouseEnter={
+                () =>
+                  this.setState({ screentimeout: true }, () => {
+                    clearTimeout(this.screentimeout);
+                    this.screentimeout = setTimeout(() => {
+                      this.setState({ screentimeout: false });
+                    }, 5000);
+                  }) //scopebook
+              }
+              onClick={this.props.setWhy}
+              style={{
+                zIndex: "1",
+                userSelect: "none",
+                backgroundColor: "rgb(65, 90, 159)",
+                color: "white",
+                borderRadius: "10px",
+                padding: "4px 0px",
+                cursor: "pointer",
+                position: "fixed",
+                right: "20px",
+                bottom: "370px"
+              }}
+            >
+              {this.state.screentimeout && (
+                <span>
+                  Quicktime screen recording `win+
+                  <span style={{ textDecoration: "line-through" }}>shift</span>
+                  ctrl+esc`{space}
+                  <a
+                    style={{ color: "white" }}
+                    href="https://studio.moises.ai/upload/split/"
+                  >
+                    in-microphone
+                  </a>
+                </span>
+              )}
+              {space}
+              <span
+                style={{
+                  transform: "translateY(20px)"
+                }}
+              >
+                scr
+              </span>
+            </div>
+            <div
+              onMouseEnter={
+                () =>
+                  this.setState({ jstimeout: true }, () => {
+                    clearTimeout(this.jstimeout);
+                    this.jstimeout = setTimeout(() => {
+                      this.setState({ jstimeout: false });
+                    }, 5000);
+                  }) //scopebook
+              }
+              onClick={this.props.setWhy}
+              style={{
+                zIndex: "1",
+                userSelect: "none",
+                backgroundColor: "rgb(65, 90, 159)",
+                color: "white",
+                borderRadius: "10px",
+                padding: "4px 0px",
+                cursor: "pointer",
+                position: "fixed",
+                right: "20px",
+                bottom: "310px"
+              }}
+            >
+              {this.state.jstimeout && (
+                <span>
+                  <a
+                    style={{ color: "white" }}
+                    href="https://github.com/nickcarducci"
+                  >
+                    new Promise(r={">"} r(JSON.stringify))
+                  </a>
+                </span>
+              )}
+              {space}
+              <span
+                style={{
+                  transform: "translateY(20px)",
+                  fontSize: "40px"
+                }}
+              >
+                JS
+              </span>
+              {/**how do I set up a react app (commie.dev + netlify) */}
+            </div>
+            <div
+              onMouseEnter={
+                () =>
                   this.setState({ emailtimeout: true }, () => {
                     clearTimeout(this.emailtimeout);
                     this.emailtimeout = setTimeout(() => {
@@ -197,7 +345,10 @@ class StopPayingMonthly extends React.Component {
                     OLD TTL "propogation"
                   </a>
                   {space}/ 3600 (
-                  <a href="https://answers.netlify.com/t/setting-icloud-up-with-my-domain-spf-issue/49162/7?u=nickcarducci">
+                  <a
+                    style={{ color: "white" }}
+                    href="https://answers.netlify.com/t/setting-icloud-up-with-my-domain-spf-issue/49162/7?u=nickcarducci"
+                  >
                     icloud+
                   </a>
                   /migadu)
