@@ -183,6 +183,51 @@ class StopPayingMonthly extends React.Component {
                 cursor: "pointer",
                 position: "fixed",
                 right: "20px",
+                bottom: "430px"
+              }}
+            >
+              {this.state.crypttimeout && (
+                <span>
+                  <a
+                    style={{ color: "white" }}
+                    href="https://discussions.apple.com/thread/250216099"
+                  >
+                    import
+                  </a>{" "}
+                  then turn
+                </span>
+              )}
+              {space}
+              <span
+                style={{
+                  transform: "translateY(20px)"
+                }}
+              >
+                imp
+              </span>
+            </div>
+
+            <div
+              onMouseEnter={
+                () =>
+                  this.setState({ crypttimeout: true }, () => {
+                    clearTimeout(this.crypttimeout);
+                    this.crypttimeout = setTimeout(() => {
+                      this.setState({ crypttimeout: false });
+                    }, 5000);
+                  }) //scopebook
+              }
+              onClick={this.props.setWhy}
+              style={{
+                zIndex: "1",
+                userSelect: "none",
+                backgroundColor: "rgb(65, 90, 159)",
+                color: "white",
+                borderRadius: "10px",
+                padding: "4px 0px",
+                cursor: "pointer",
+                position: "fixed",
+                right: "20px",
                 bottom: "400px"
               }}
             >
