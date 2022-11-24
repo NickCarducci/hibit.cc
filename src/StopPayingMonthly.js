@@ -13,6 +13,7 @@ class StopPayingMonthly extends React.Component {
     clearTimeout(this.traptimeout);
     clearTimeout(this.jstimeout);
     clearTimeout(this.emailtimeout);
+    clearTimeout(this.rusttimeout);
   };
   render() {
     const space = " ";
@@ -120,10 +121,10 @@ class StopPayingMonthly extends React.Component {
             <div
               onMouseEnter={
                 () =>
-                  this.setState({ jstimeout: true }, () => {
-                    clearTimeout(this.jstimeout);
-                    this.jstimeout = setTimeout(() => {
-                      this.setState({ jstimeout: false });
+                  this.setState({ rusttimeout: true }, () => {
+                    clearTimeout(this.rusttimeout);
+                    this.rusttimeout = setTimeout(() => {
+                      this.setState({ rusttimeout: false });
                     }, 5000);
                   }) //scopebook
               }
@@ -138,37 +139,31 @@ class StopPayingMonthly extends React.Component {
                 cursor: "pointer",
                 position: "fixed",
                 right: "20px",
-                bottom: "310px"
+                bottom: "460px"
               }}
             >
-              {this.state.jstimeout && (
+              {this.state.rusttimeout && (
                 <span>
-                  <a
-                    style={{ color: "white" }}
-                    href="https://github.com/nickcarducci"
-                  >
-                    new Promise(r={">"} r(JSON.stringify))
-                  </a>
+                  Struct objects per field instantiate implementations
                 </span>
               )}
               {space}
               <span
                 style={{
-                  transform: "translateY(20px)",
-                  fontSize: "40px"
+                  transform: "translateY(20px)"
                 }}
               >
-                JS
+                rustic
               </span>
               {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
             <div
               onMouseEnter={
                 () =>
-                  this.setState({ crypttimeout: true }, () => {
-                    clearTimeout(this.crypttimeout);
-                    this.crypttimeout = setTimeout(() => {
-                      this.setState({ crypttimeout: false });
+                  this.setState({ importtimeout: true }, () => {
+                    clearTimeout(this.importtimeout);
+                    this.importtimeout = setTimeout(() => {
+                      this.setState({ importtimeout: false });
                     }, 5000);
                   }) //scopebook
               }
@@ -186,7 +181,7 @@ class StopPayingMonthly extends React.Component {
                 bottom: "430px"
               }}
             >
-              {this.state.crypttimeout && (
+              {this.state.importtimeout && (
                 <span>
                   <a
                     style={{ color: "white" }}
