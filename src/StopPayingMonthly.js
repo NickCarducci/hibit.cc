@@ -13,6 +13,8 @@ class StopPayingMonthly extends React.Component {
     clearTimeout(this.traptimeout);
     clearTimeout(this.jstimeout);
     clearTimeout(this.emailtimeout);
+    clearTimeout(this.screentimeout);
+    clearTimeout(this.importtimeout);
     clearTimeout(this.rusttimeout);
   };
   render() {
