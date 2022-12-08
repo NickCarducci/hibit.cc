@@ -638,6 +638,7 @@ class StopPayingMonthly extends React.Component {
               {space}
               &image;{/**how do I set up a react app (commie.dev + netlify) */}
             </div>
+
             <div
               onMouseEnter={
                 () =>
@@ -659,6 +660,40 @@ class StopPayingMonthly extends React.Component {
                 cursor: "pointer",
                 position: "fixed",
                 left: "20px",
+                bottom: "60px"
+              }}
+            >
+              &infin;{space}
+              {this.state.nodeDevtimeout && (
+                <a
+                  style={{ color: "white" }}
+                  href="https://github.com/NickCarducci/mastercard-backbank-digital-ocean-app"
+                >
+                  node repo
+                </a>
+              )}
+            </div>
+            <div
+              onMouseEnter={
+                () =>
+                  this.setState({ nodeDevtimeout: true }, () => {
+                    clearTimeout(this.nodeDevtimeout);
+                    this.nodeDevtimeout = setTimeout(() => {
+                      this.setState({ nodeDevtimeout: false });
+                    }, 5000);
+                  }) //scopebook
+              }
+              onClick={this.props.setWhy}
+              style={{
+                zIndex: "1",
+                userSelect: "none",
+                backgroundColor: "rgb(65, 90, 159)",
+                color: "gold",
+                borderRadius: "10px",
+                padding: "4px 6px",
+                cursor: "pointer",
+                position: "fixed",
+                left: "20px",
                 bottom: "20px"
               }}
             >
@@ -668,7 +703,7 @@ class StopPayingMonthly extends React.Component {
                   style={{ color: "white" }}
                   href="https://github.com/NickCarducci/mastercard-backbank-digital-ocean"
                 >
-                  node repo
+                  nginx repo
                 </a>
               )}
             </div>
