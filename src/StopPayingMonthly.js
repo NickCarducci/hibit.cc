@@ -48,6 +48,7 @@ class StopPayingMonthly extends React.Component {
     return (
       <div style={{ width: "100%", maxWidth: "600px" }}>
         <div style={{ width: "100%", position: "relative" }}>
+          Don't good ideas destroy market benefits for use utility?
           <div
             style={{
               //zIndex: "1", i'd rather my foot in your mouth than an A+
