@@ -16,6 +16,7 @@ class StopPayingMonthly extends React.Component {
     clearTimeout(this.screentimeout);
     clearTimeout(this.importtimeout);
     clearTimeout(this.rusttimeout);
+    clearTimeout(this.csstimeout);
   };
   render() {
     const space = " ";
@@ -142,7 +143,7 @@ class StopPayingMonthly extends React.Component {
                 cursor: "pointer",
                 position: "fixed",
                 right: "20px",
-                bottom: "460px"
+                bottom: "520px"
               }}
             >
               {this.state.rusttimeout && (
@@ -181,7 +182,7 @@ class StopPayingMonthly extends React.Component {
                 cursor: "pointer",
                 position: "fixed",
                 right: "20px",
-                bottom: "430px"
+                bottom: "490px"
               }}
             >
               {this.state.importtimeout && (
@@ -226,7 +227,7 @@ class StopPayingMonthly extends React.Component {
                 cursor: "pointer",
                 position: "fixed",
                 right: "20px",
-                bottom: "400px"
+                bottom: "460px"
               }}
             >
               {this.state.crypttimeout && (
@@ -283,7 +284,7 @@ class StopPayingMonthly extends React.Component {
                 cursor: "pointer",
                 position: "fixed",
                 right: "20px",
-                bottom: "370px"
+                bottom: "430px"
               }}
             >
               {this.state.screentimeout && (
@@ -307,6 +308,48 @@ class StopPayingMonthly extends React.Component {
               >
                 scr
               </span>
+            </div>
+            <div
+              onMouseEnter={
+                () =>
+                  this.setState({ csstimeout: true }, () => {
+                    clearTimeout(this.csstimeout);
+                    this.csstimeout = setTimeout(() => {
+                      this.setState({ csstimeout: false });
+                    }, 5000);
+                  }) //scopebook
+              }
+              onClick={this.props.setWhy}
+              style={{
+                zIndex: "1",
+                userSelect: "none",
+                backgroundColor: "rgb(65, 90, 159)",
+                color: "white",
+                borderRadius: "10px",
+                padding: "4px 0px",
+                cursor: "pointer",
+                position: "fixed",
+                right: "20px",
+                bottom: "370px"
+              }}
+            >
+              {this.state.csstimeout && (
+                <span>
+                  Div’s offsetHeight is is just that, to the parent div.
+                  <br />
+                  Only position:”relative” holds absolute children in place
+                </span>
+              )}
+              {space}
+              <span
+                style={{
+                  transform: "translateY(20px)",
+                  fontSize: "40px"
+                }}
+              >
+                Css
+              </span>
+              {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
             <div
               onMouseEnter={
