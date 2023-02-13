@@ -17,6 +17,7 @@ class StopPayingMonthly extends React.Component {
     clearTimeout(this.importtimeout);
     clearTimeout(this.rusttimeout);
     clearTimeout(this.csstimeout);
+    clearTimeout(this.promisetimeout);
   };
   render() {
     const space = " ";
@@ -122,6 +123,46 @@ class StopPayingMonthly extends React.Component {
                 why?
               </span>
             </span>
+            <div
+              onMouseEnter={
+                () =>
+                  this.setState({ promisetimeout: true }, () => {
+                    clearTimeout(this.promisetimeout);
+                    this.promisetimeout = setTimeout(() => {
+                      this.setState({ promisetimeout: false });
+                    }, 5000);
+                  }) //scopebook
+              }
+              onClick={this.props.setWhy}
+              style={{
+                zIndex: "1",
+                userSelect: "none",
+                backgroundColor: "rgb(65, 90, 159)",
+                color: "white",
+                borderRadius: "10px",
+                padding: "4px 0px",
+                cursor: "pointer",
+                position: "fixed",
+                right: "20px",
+                bottom: "550px"
+              }}
+            >
+              {this.state.promisetimeout && (
+                <span>
+                  Promise.all(await stuff.map(x=>new Promise(r=>{"{"}
+                  const done = JSON.stringify({}) return r(done){"}"})))
+                </span>
+              )}
+              {space}
+              <span
+                style={{
+                  transform: "translateY(20px)"
+                }}
+              >
+                json promise all
+              </span>
+              {/**how do I set up a react app (commie.dev + netlify) */}
+            </div>
             <div
               onMouseEnter={
                 () =>
