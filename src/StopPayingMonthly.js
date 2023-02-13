@@ -18,6 +18,7 @@ class StopPayingMonthly extends React.Component {
     clearTimeout(this.rusttimeout);
     clearTimeout(this.csstimeout);
     clearTimeout(this.promisetimeout);
+    clearTimeout(this.reducetimeout);
   };
   render() {
     const space = " ";
@@ -123,6 +124,57 @@ class StopPayingMonthly extends React.Component {
                 why?
               </span>
             </span>
+            <div
+              onMouseEnter={
+                () =>
+                  this.setState({ reducetimeout: true }, () => {
+                    clearTimeout(this.reducetimeout);
+                    this.reducetimeout = setTimeout(() => {
+                      this.setState({ reducetimeout: false });
+                    }, 5000);
+                  }) //scopebook
+              }
+              onClick={this.props.setWhy}
+              style={{
+                textAlign: "right",
+                zIndex: "1",
+                userSelect: "none",
+                backgroundColor: "rgb(65, 90, 159)",
+                color: "white",
+                borderRadius: "10px",
+                padding: "4px 0px",
+                cursor: "pointer",
+                position: "fixed",
+                right: "20px",
+                bottom: "580px"
+              }}
+            >
+              {this.state.reducetimeout && (
+                <span style={{}}>
+                  {`{
+                  ...Object.keys(address).reduce(
+                    (remaining, next) =>
+                      Object.assign(remaining, {
+                        [next]: address[next]
+                          ? address[next]
+                          : ""
+                      })
+                    ,
+                    address
+                  )
+                }`}
+                </span>
+              )}
+              {space}
+              <span
+                style={{
+                  transform: "translateY(20px)"
+                }}
+              >
+                reduce
+              </span>
+              {/**how do I set up a react app (commie.dev + netlify) */}
+            </div>
             <div
               onMouseEnter={
                 () =>
