@@ -716,6 +716,7 @@ class StopPayingMonthly extends React.Component {
         </div>
         <div
           style={{
+            backgroundColor: "rgba(80,30,160,.2)",
             maxWidth: "100%",
             opacity: ".6",
             position: "relative",
