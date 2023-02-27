@@ -1,8 +1,19 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import React /*, { useEffect, useRef }*/ from "react";
+import { UAParser } from "ua-parser-js";
+import { createRoot } from "react-dom/client";
+//import { createPortal } from "react-dom";
+import {
+  Route,
+  BrowserRouter,
+  Routes,
+  useLocation,
+  useNavigate,
+  useParams
+} from "react-router-dom";
+//import { CSSTransition, TransitionGroup } from "react-transition-group";
 import App from "./App";
+//import Filament from "./ifilament.js";
+
 import StopPayingMonthly from "./StopPayingMonthly.js";
 
 class PathRouter extends React.Component {
@@ -18,6 +29,33 @@ class PathRouter extends React.Component {
   toPathname = (pathname) => {
     this.setState({ pathname });
   };
+  componentDidMount = () => {
+    this.handleScroll();
+    window.addEventListener("scroll", this.handleScroll);
+  };
+  componentWillUnmount = () => {
+    clearTimeout(this.scrollTimeout);
+    window.removeEventListener("scroll", this.handleScroll);
+  };
+  handleScroll = (e) => {
+    if (!this.state.offScroll) {
+      const scrollTop = window.scrollY;
+      this.setState(
+        {
+          scrolling: true,
+          scrollTop
+        },
+        () => {
+          clearTimeout(this.scrollTimeout);
+          this.scrollTimeout = setTimeout(() => {
+            this.setState({
+              scrolling: false
+            });
+          }, 900);
+        }
+      );
+    }
+  };
   render() {
     /**
      * Cloud Run comes with a generous free tier and is pay per use,
@@ -29,60 +67,58 @@ class PathRouter extends React.Component {
      *  The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable.
      * Container called exit(1).
      */
-    return (
-      <Route
-        render={({ location, history }) => {
-          if (location.pathname !== this.state.pathname) {
-            clearTimeout(this.pauseRender);
-            this.pauseRender = setTimeout(() => {
-              this.setState({ pathname: location.pathname, history }, () => {
-                if (location.state && location.state.statePathname) {
-                  this.setState({
-                    statePathname: location.state.statePathname
-                  });
-                }
-              });
-            }, 200);
-          }
-          return (
-            <TransitionGroup key="1">
-              <CSSTransition key="1" timeout={300} classNames={"fade"}>
-                <Switch key={location.key} location={location}>
-                  <Route
-                    //exact
-                    path="/"
-                    render={(props) =>
-                      this.state.why ? (
-                        <StopPayingMonthly
-                          setWhy={() => this.setState({ why: false })}
-                        />
-                      ) : (
-                        <App
-                          setWhy={() => this.setState({ why: true })}
-                          pathname={this.state.pathname}
-                          openNROP={() =>
-                            this.setState({ why: true }, () =>
-                              window.scrollTo(0, 0)
-                            )
-                          }
-                        />
-                      )
-                    }
-                  />
-                </Switch>
-              </CSSTransition>
-            </TransitionGroup>
-          );
-        }}
+    return this.state.why ? (
+      <StopPayingMonthly
+        scrolling={this.state.scrolling}
+        scrollTop={this.state.scrollTop}
+        availHeight={this.props.availHeight}
+        width={this.props.width}
+        setWhy={() => this.setState({ why: false })}
+      />
+    ) : (
+      <App
+        setWhy={() => this.setState({ why: true })}
+        pathname={this.state.pathname}
+        openNROP={() =>
+          this.setState({ why: true }, () => window.scrollTo(0, 0))
+        }
       />
     );
   }
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(
+const ClassHook = () => {
+  var parser = new UAParser();
+  const name = parser.getBrowser().name;
+  const width = name.includes("Safari")
+    ? window.screen.availWidth
+    : window.innerWidth;
+  const height = name.includes("Safari")
+    ? window.screen.availHeight
+    : window.innerHeight;
+  return (
+    <PathRouter
+      paths={useParams()}
+      l={useLocation()}
+      n={useNavigate()}
+      {...{
+        height,
+        lastWidth: width,
+        width,
+        availHeight: name ? window.screen.availHeight - 20 : window.innerHeight
+      }}
+    />
+  );
+}; // "cannot be called inside a callback" <Hook/>
+createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <PathRouter />
-  </BrowserRouter>,
-  rootElement
+    <Routes>
+      <Route
+        //exact
+        path="/*"
+        //children,render
+        element={<ClassHook />} //Initelement
+      />
+    </Routes>
+  </BrowserRouter>
 );
