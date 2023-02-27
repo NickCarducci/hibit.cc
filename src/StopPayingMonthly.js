@@ -48,110 +48,217 @@ class StopPayingMonthly extends React.Component {
       Number(
         goingprice.substring(0, (decimal > 0 ? decimal : goingprice.length) + 1)
       ) + 1;
+    const itemStyle = {
+      top: "0px",
+      //transform: "translate(0%,0%) rotate(90deg)",
+      textAlign: "right",
+      userSelect: "none",
+      backgroundColor: "rgb(65, 90, 159)",
+      color: "white",
+      margin: "4px 10px",
+      borderRadius: "10px",
+      padding: "4px 10px",
+      cursor: "pointer",
+      width: "max-content",
+      float: "right"
+    };
     return (
       <div style={{ width: "100%", maxWidth: "600px" }}>
-        <div style={{ width: "100%", position: "relative" }}>
-          Don't good ideas destroy market benefits for use utility?
-          <div
-            style={{
-              //zIndex: "1", i'd rather my foot in your mouth than an A+
-              height: "100%",
-              width: "100%",
-              position: "absolute",
-              backgroundColor: "rgba(80,30,160,.2)"
-            }}
-          >
-            <span
-              onMouseEnter={
-                () =>
-                  this.setState(
-                    {
-                      firewallPlustimeout:
-                        this.state.firewallPlustimeout === true
-                          ? 1
-                          : !this.state.firewallPlustimeout
-                    },
-                    () => {
-                      clearTimeout(this.firewallPlustimeout);
-                      this.firewallPlustimeout = setTimeout(() => {
-                        this.setState({ firewallPlustimeout: false });
-                      }, 5000);
-                    }
-                  ) //scopebook
-              }
-              style={{
-                transition: ".3s ease-out",
-                justifyContent: "space-between",
-                maxWidth: "max-content",
-                width: "calc(100% - 50px)",
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "white",
-                borderRadius: "10px",
-                padding: "4px 6px",
-                cursor: "pointer",
-                display: "flex",
-                position: "fixed",
-                right: "20px"
-              }}
+        <span
+          //zIndex: "1", i'd rather my foot in your mouth than an A+
+          onMouseEnter={
+            () =>
+              this.setState(
+                {
+                  firewallPlustimeout:
+                    this.state.firewallPlustimeout === true
+                      ? 1
+                      : !this.state.firewallPlustimeout
+                },
+                () => {
+                  clearTimeout(this.firewallPlustimeout);
+                  this.firewallPlustimeout = setTimeout(() => {
+                    this.setState({ firewallPlustimeout: false });
+                  }, 5000);
+                }
+              ) //scopebook
+          }
+          style={{
+            position: "fixed",
+            textAlign: "right",
+            top: "30px",
+            right: "10px",
+            transition: ".3s ease-out",
+            justifyContent: "space-between",
+            width: "max-content",
+            maxWidth: Math.min(400, this.props.width),
+            zIndex: "1",
+            userSelect: "none",
+            backgroundColor: "rgb(65, 90, 159)",
+            color: "white",
+            borderRadius: "10px",
+            padding: "4px 6px",
+            cursor: "pointer"
+          }}
+        >
+          {this.state.firewallPlustimeout === 1 ? (
+            <a
+              style={{ color: "white" }}
+              href="https://github.com/w3c/strategy/issues/358"
             >
-              {this.state.firewallPlustimeout === 1 ? (
-                <a
-                  style={{ color: "white" }}
-                  href="https://github.com/w3c/strategy/issues/358"
-                >
-                  all-methods-local-proxy
-                </a>
-              ) : (
-                this.state.firewallPlustimeout && (
-                  <a
-                    style={{ color: "white" }}
-                    href="https://www.nginx.com/learn/waf-web-application-firewall/"
-                  >
-                    Config Web Firewall
-                  </a>
-                )
-              )}
-
-              <span
-                style={{
-                  paddingLeft: "6px"
-                }}
-                onClick={this.props.setWhy}
+              all-methods-local-proxy
+            </a>
+          ) : (
+            this.state.firewallPlustimeout && (
+              <a
+                style={{ color: "white" }}
+                href="https://www.nginx.com/learn/waf-web-application-firewall/"
               >
-                {this.state.firewallPlustimeout && `  `}
-                why?
-              </span>
+                Config Web Firewall
+              </a>
+            )
+          )}
+
+          {this.state.designUItimeout ? (
+            <span>
+              Monokai 10px PreviewEdit off (change file name if freeze)
+              {space}
+              <a
+                style={{ color: "white" }}
+                href="https://github.com/NickCarducci/commie.dev"
+              >
+                boiler repo
+              </a>
             </span>
-            <div
-              onMouseEnter={
-                () =>
-                  this.setState({ reducetimeout: true }, () => {
-                    clearTimeout(this.reducetimeout);
-                    this.reducetimeout = setTimeout(() => {
-                      this.setState({ reducetimeout: false });
-                    }, 5000);
-                  }) //scopebook
-              }
-              onClick={this.props.setWhy}
-              style={{
-                textAlign: "right",
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "white",
-                borderRadius: "10px",
-                padding: "4px 0px",
-                cursor: "pointer",
-                position: "fixed",
-                right: "20px",
-                bottom: "580px"
-              }}
+          ) : this.state.runscreenshottimeout ? (
+            <a
+              style={{ color: "white" }}
+              href="https://www.lifewire.com/take-screenshot-using-dev-tools-on-google-chrome-5097913"
             >
-              {this.state.reducetimeout && (
-                <span style={{}}>
-                  {`{
+              run command {">"} screenshot
+            </a>
+          ) : this.state.anontimeout ? (
+            <span>
+              <a
+                style={{ color: "white" }}
+                href="https://codesandbox.io/s/react-local-firebase-i7l8qe?file=/src/App.js"
+              >
+                auth repo
+              </a>
+            </span>
+          ) : this.state.frametimeout ? (
+            <span>
+              <a
+                style={{ color: "white" }}
+                href="https://codesandbox.io/s/scopebook-timeclock-yxv61i?file=/src/Frame.js"
+              >
+                frame repo
+              </a>
+            </span>
+          ) : this.state.sidemenutimeout ? (
+            <span>
+              <a
+                style={{ color: "white" }}
+                href="https://codesandbox.io/s/vau-money-jwi5k?file=/src/Frame.js"
+              >
+                sidemenu repo
+              </a>
+            </span>
+          ) : this.state.traptimeout ? (
+            <span>
+              <a style={{ color: "white" }} href="https://codesandbox.io/">
+                inspect hidden divs / rename sandbox loops / `prettier-ignore`
+                one line
+              </a>
+            </span>
+          ) : this.state.emailtimeout ? (
+            <span>
+              <a
+                style={{ color: "white" }}
+                href="https://answers.netlify.com/t/support-guide-how-can-i-receive-emails-on-my-domain/178"
+              >
+                OLD TTL "propogation"
+              </a>
+              {space}/ 3600 (
+              <a
+                style={{ color: "white" }}
+                href="https://answers.netlify.com/t/setting-icloud-up-with-my-domain-spf-issue/49162/7?u=nickcarducci"
+              >
+                icloud+
+              </a>
+              /migadu)
+            </span>
+          ) : this.state.jstimeout ? (
+            <span>
+              <a
+                style={{ color: "white" }}
+                href="https://github.com/nickcarducci"
+              >
+                new Promise(r={">"} r(JSON.stringify))
+              </a>
+            </span>
+          ) : this.state.csstimeout ? (
+            <span>
+              Div’s offsetHeight is is just that, to the parent div.
+              <br />
+              Only position:”relative” holds absolute children in place
+            </span>
+          ) : this.state.screentimeout ? (
+            <span>
+              Quicktime screen recording `win+
+              <span style={{ textDecoration: "line-through" }}>shift</span>
+              ctrl+esc`{space}
+              <a
+                style={{ color: "white" }}
+                href="https://studio.moises.ai/upload/split/"
+              >
+                in-microphone
+              </a>
+            </span>
+          ) : this.state.crypttimeout ? (
+            <span>
+              <a
+                style={{ color: "white" }}
+                href="https://vaults.quora.com/Even-with-local-private-keys-cant-the-geth-Ethereum-network-store-developer-transfer-unrecoverable-wallet-funds-to-a"
+              >
+                vault-co.in
+              </a>
+              {space}EIP/
+              <a
+                style={{ color: "white" }}
+                href="https://eips.ethereum.org/EIPS/eip-1155"
+              >
+                ERC
+              </a>
+              {space}token{space}
+              <a
+                style={{ color: "white" }}
+                href="https://anchor.fm/micro-theory/episodes/Strategic-Voting-with-a-potential-network-effect-and-new-antifinance-alternative-e1qvulq"
+              >
+                rules
+              </a>
+            </span>
+          ) : this.state.importtimeout ? (
+            <span>
+              <a
+                style={{ color: "white" }}
+                href="https://discussions.apple.com/thread/250216099"
+              >
+                import
+              </a>{" "}
+              then turn
+            </span>
+          ) : this.state.rusttimeout ? (
+            <span>Struct objects per field instantiate implementations</span>
+          ) : this.state.promisetimeout ? (
+            <span>
+              Promise.all(await stuff.map(x={">"}new Promise(r={">"}
+              {"{"}
+              const done = JSON.stringify({}) return r(done){"}"})))
+            </span>
+          ) : this.state.reducetimeout ? (
+            <span style={{}}>
+              {`{
                   ...Object.keys(address).reduce(
                     (remaining, next) =>
                       Object.assign(remaining, {
@@ -163,13 +270,51 @@ class StopPayingMonthly extends React.Component {
                     address
                   )
                 }`}
-                </span>
-              )}
-              {space}
+            </span>
+          ) : (
+            <span
+              style={{
+                paddingLeft: "6px"
+              }}
+              onClick={this.props.setWhy}
+            >
+              {this.state.firewallPlustimeout && `  `}
+              why?
+            </span>
+          )}
+          <div
+            style={{
+              textAlign: "right",
+              width: "80px",
+              //height: Math.min(this.props.availHeight, 300),
+              top: "80px",
+              right: "0px",
+              position: "absolute",
+              columnCount: 2
+              //display: "flex",
+              //flexWrap: "wrap"
+              //transform: "rotate(90deg)" //translate(0%,0%)
+            }}
+          >
+            <div
+              onMouseEnter={
+                () =>
+                  this.setState({ reducetimeout: true }, () => {
+                    clearTimeout(this.reducetimeout);
+                    this.reducetimeout = setTimeout(() => {
+                      this.setState({ reducetimeout: false });
+                    }, 5000);
+                  }) //scopebook
+              }
+              onClick={this.props.setWhy}
+              style={itemStyle}
+            >
               <span
-                style={{
-                  transform: "translateY(20px)"
-                }}
+                style={
+                  {
+                    //transform: "translateY(20px)"
+                  }
+                }
               >
                 reduce
               </span>
@@ -186,34 +331,17 @@ class StopPayingMonthly extends React.Component {
                   }) //scopebook
               }
               onClick={this.props.setWhy}
-              style={{
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "white",
-                borderRadius: "10px",
-                padding: "4px 0px",
-                cursor: "pointer",
-                position: "fixed",
-                right: "20px",
-                bottom: "550px"
-              }}
+              style={itemStyle}
             >
-              {this.state.promisetimeout && (
-                <span>
-                  Promise.all(await stuff.map(x=>new Promise(r=>{"{"}
-                  const done = JSON.stringify({}) return r(done){"}"})))
-                </span>
-              )}
-              {space}
               <span
-                style={{
-                  transform: "translateY(20px)"
-                }}
+                style={
+                  {
+                    //transform: "translateY(20px)"
+                  }
+                }
               >
                 json promise all
               </span>
-              {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
             <div
               onMouseEnter={
@@ -226,29 +354,14 @@ class StopPayingMonthly extends React.Component {
                   }) //scopebook
               }
               onClick={this.props.setWhy}
-              style={{
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "white",
-                borderRadius: "10px",
-                padding: "4px 0px",
-                cursor: "pointer",
-                position: "fixed",
-                right: "20px",
-                bottom: "520px"
-              }}
+              style={itemStyle}
             >
-              {this.state.rusttimeout && (
-                <span>
-                  Struct objects per field instantiate implementations
-                </span>
-              )}
-              {space}
               <span
-                style={{
-                  transform: "translateY(20px)"
-                }}
+                style={
+                  {
+                    //transform: "translateY(20px)"
+                  }
+                }
               >
                 rustic
               </span>
@@ -265,35 +378,14 @@ class StopPayingMonthly extends React.Component {
                   }) //scopebook
               }
               onClick={this.props.setWhy}
-              style={{
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "white",
-                borderRadius: "10px",
-                padding: "4px 0px",
-                cursor: "pointer",
-                position: "fixed",
-                right: "20px",
-                bottom: "490px"
-              }}
+              style={itemStyle}
             >
-              {this.state.importtimeout && (
-                <span>
-                  <a
-                    style={{ color: "white" }}
-                    href="https://discussions.apple.com/thread/250216099"
-                  >
-                    import
-                  </a>{" "}
-                  then turn
-                </span>
-              )}
-              {space}
               <span
-                style={{
-                  transform: "translateY(20px)"
-                }}
+                style={
+                  {
+                    //transform: "translateY(20px)"
+                  }
+                }
               >
                 imp
               </span>
@@ -310,48 +402,14 @@ class StopPayingMonthly extends React.Component {
                   }) //scopebook
               }
               onClick={this.props.setWhy}
-              style={{
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "white",
-                borderRadius: "10px",
-                padding: "4px 0px",
-                cursor: "pointer",
-                position: "fixed",
-                right: "20px",
-                bottom: "460px"
-              }}
+              style={itemStyle}
             >
-              {this.state.crypttimeout && (
-                <span>
-                  <a
-                    style={{ color: "white" }}
-                    href="https://vaults.quora.com/Even-with-local-private-keys-cant-the-geth-Ethereum-network-store-developer-transfer-unrecoverable-wallet-funds-to-a"
-                  >
-                    vault-co.in
-                  </a>
-                  {space}EIP/
-                  <a
-                    style={{ color: "white" }}
-                    href="https://eips.ethereum.org/EIPS/eip-1155"
-                  >
-                    ERC
-                  </a>
-                  {space}token{space}
-                  <a
-                    style={{ color: "white" }}
-                    href="https://anchor.fm/micro-theory/episodes/Strategic-Voting-with-a-potential-network-effect-and-new-antifinance-alternative-e1qvulq"
-                  >
-                    rules
-                  </a>
-                </span>
-              )}
-              {space}
               <span
-                style={{
-                  transform: "translateY(20px)"
-                }}
+                style={
+                  {
+                    //transform: "translateY(20px)"
+                  }
+                }
               >
                 crypt
               </span>
@@ -367,37 +425,14 @@ class StopPayingMonthly extends React.Component {
                   }) //scopebook
               }
               onClick={this.props.setWhy}
-              style={{
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "white",
-                borderRadius: "10px",
-                padding: "4px 0px",
-                cursor: "pointer",
-                position: "fixed",
-                right: "20px",
-                bottom: "430px"
-              }}
+              style={itemStyle}
             >
-              {this.state.screentimeout && (
-                <span>
-                  Quicktime screen recording `win+
-                  <span style={{ textDecoration: "line-through" }}>shift</span>
-                  ctrl+esc`{space}
-                  <a
-                    style={{ color: "white" }}
-                    href="https://studio.moises.ai/upload/split/"
-                  >
-                    in-microphone
-                  </a>
-                </span>
-              )}
-              {space}
               <span
-                style={{
-                  transform: "translateY(20px)"
-                }}
+                style={
+                  {
+                    //transform: "translateY(20px)"
+                  }
+                }
               >
                 scr
               </span>
@@ -413,32 +448,15 @@ class StopPayingMonthly extends React.Component {
                   }) //scopebook
               }
               onClick={this.props.setWhy}
-              style={{
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "white",
-                borderRadius: "10px",
-                padding: "4px 0px",
-                cursor: "pointer",
-                position: "fixed",
-                right: "20px",
-                bottom: "370px"
-              }}
+              style={itemStyle}
             >
-              {this.state.csstimeout && (
-                <span>
-                  Div’s offsetHeight is is just that, to the parent div.
-                  <br />
-                  Only position:”relative” holds absolute children in place
-                </span>
-              )}
-              {space}
               <span
-                style={{
-                  transform: "translateY(20px)",
-                  fontSize: "40px"
-                }}
+                style={
+                  {
+                    //transform: "translateY(20px)",
+                    //fontSize: "40px"
+                  }
+                }
               >
                 Css
               </span>
@@ -455,35 +473,15 @@ class StopPayingMonthly extends React.Component {
                   }) //scopebook
               }
               onClick={this.props.setWhy}
-              style={{
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "white",
-                borderRadius: "10px",
-                padding: "4px 0px",
-                cursor: "pointer",
-                position: "fixed",
-                right: "20px",
-                bottom: "310px"
-              }}
+              style={itemStyle}
             >
-              {this.state.jstimeout && (
-                <span>
-                  <a
-                    style={{ color: "white" }}
-                    href="https://github.com/nickcarducci"
-                  >
-                    new Promise(r={">"} r(JSON.stringify))
-                  </a>
-                </span>
-              )}
-              {space}
               <span
-                style={{
-                  transform: "translateY(20px)",
-                  fontSize: "40px"
-                }}
+                style={
+                  {
+                    //transform: "translateY(20px)",
+                    //fontSize: "40px"
+                  }
+                }
               >
                 JS
               </span>
@@ -500,45 +498,14 @@ class StopPayingMonthly extends React.Component {
                   }) //scopebook
               }
               onClick={this.props.setWhy}
-              style={{
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "white",
-                borderRadius: "10px",
-                padding: "4px 0px",
-                cursor: "pointer",
-                position: "fixed",
-                right: "20px",
-                bottom: "270px",
-                height: "20px",
-                minWidth: "30px"
-              }}
+              style={itemStyle}
             >
-              {this.state.emailtimeout && (
-                <span>
-                  <a
-                    style={{ color: "white" }}
-                    href="https://answers.netlify.com/t/support-guide-how-can-i-receive-emails-on-my-domain/178"
-                  >
-                    OLD TTL "propogation"
-                  </a>
-                  {space}/ 3600 (
-                  <a
-                    style={{ color: "white" }}
-                    href="https://answers.netlify.com/t/setting-icloud-up-with-my-domain-spf-issue/49162/7?u=nickcarducci"
-                  >
-                    icloud+
-                  </a>
-                  /migadu)
-                </span>
-              )}
-              {space}
               <span
                 style={{
-                  top: "-15px",
-                  position: "absolute",
-                  fontSize: "40px"
+                  lineHeight: "10px",
+                  //top: "-15px",
+                  //position: "absolute",
+                  fontSize: "20px"
                 }}
               >
                 &#9993;
@@ -556,28 +523,9 @@ class StopPayingMonthly extends React.Component {
                   }) //scopebook
               }
               onClick={this.props.setWhy}
-              style={{
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "white",
-                borderRadius: "10px",
-                padding: "4px 6px",
-                cursor: "pointer",
-                position: "fixed",
-                right: "20px",
-                bottom: "230px"
-              }}
+              style={itemStyle}
             >
-              {this.state.traptimeout && (
-                <span>
-                  <a style={{ color: "white" }} href="https://codesandbox.io/">
-                    inspect hidden divs / rename sandbox loops /
-                    `prettier-ignore` one line
-                  </a>
-                </span>
-              )}
-              {space}?{/**how do I set up a react app (commie.dev + netlify) */}
+              ?{/**how do I set up a react app (commie.dev + netlify) */}
             </div>
             <div
               onMouseEnter={
@@ -590,31 +538,8 @@ class StopPayingMonthly extends React.Component {
                   }) //scopebook
               }
               onClick={this.props.setWhy}
-              style={{
-                borderLeft: "5px solid red",
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "white",
-                borderRadius: "10px",
-                padding: "4px 6px",
-                cursor: "pointer",
-                position: "fixed",
-                right: "20px",
-                bottom: "190px"
-              }}
+              style={itemStyle}
             >
-              {this.state.sidemenutimeout && (
-                <span>
-                  <a
-                    style={{ color: "white" }}
-                    href="https://codesandbox.io/s/vau-money-jwi5k?file=/src/Frame.js"
-                  >
-                    sidemenu repo
-                  </a>
-                </span>
-              )}
-              {space}
               <span role="img" aria-label="masks">
                 🎭
               </span>
@@ -631,31 +556,8 @@ class StopPayingMonthly extends React.Component {
                   }) //scopebook
               }
               onClick={this.props.setWhy}
-              style={{
-                border: "5px solid red",
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "white",
-                borderRadius: "10px",
-                padding: "4px 6px",
-                cursor: "pointer",
-                position: "fixed",
-                right: "20px",
-                bottom: "140px"
-              }}
+              style={itemStyle}
             >
-              {this.state.frametimeout && (
-                <span>
-                  <a
-                    style={{ color: "white" }}
-                    href="https://codesandbox.io/s/scopebook-timeclock-yxv61i?file=/src/Frame.js"
-                  >
-                    frame repo
-                  </a>
-                </span>
-              )}
-              {space}
               <span role="img" aria-label="masks">
                 🎭
               </span>
@@ -672,36 +574,16 @@ class StopPayingMonthly extends React.Component {
                   }) //scopebook
               }
               onClick={this.props.setWhy}
-              style={{
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "white",
-                borderRadius: "10px",
-                padding: "4px 6px",
-                cursor: "pointer",
-                position: "fixed",
-                right: "20px",
-                bottom: "100px"
-              }}
+              style={itemStyle}
             >
-              {this.state.anontimeout && (
-                <span>
-                  <a
-                    style={{ color: "white" }}
-                    href="https://codesandbox.io/s/react-local-firebase-i7l8qe?file=/src/App.js"
-                  >
-                    auth repo
-                  </a>
-                </span>
-              )}
-              {space}
               <span role="img" aria-label="masks">
                 🎭
               </span>
               {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
-            <div
+            <span
+              role="img"
+              aria-label="camera"
               onMouseEnter={
                 () =>
                   this.setState({ runscreenshottimeout: true }, () => {
@@ -712,30 +594,10 @@ class StopPayingMonthly extends React.Component {
                   }) //scopebook
               }
               onClick={this.props.setWhy}
-              style={{
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "white",
-                borderRadius: "10px",
-                padding: "4px 6px",
-                cursor: "pointer",
-                position: "fixed",
-                right: "20px",
-                bottom: "60px"
-              }}
+              style={itemStyle}
             >
-              {this.state.runscreenshottimeout && (
-                <a
-                  style={{ color: "white" }}
-                  href="https://www.lifewire.com/take-screenshot-using-dev-tools-on-google-chrome-5097913"
-                >
-                  run command {">"} screenshot
-                </a>
-              )}
-              {space}
               &#128247;
-            </div>
+            </span>
             <div
               onMouseEnter={
                 () =>
@@ -747,258 +609,264 @@ class StopPayingMonthly extends React.Component {
                   }) //scopebook
               }
               onClick={this.props.setWhy}
-              style={{
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "white",
-                borderRadius: "10px",
-                padding: "4px 6px",
-                cursor: "pointer",
-                position: "fixed",
-                right: "20px",
-                bottom: "20px"
-              }}
+              style={itemStyle}
             >
-              {this.state.designUItimeout && (
-                <span>
-                  Monokai 10px PreviewEdit off (change file name if freeze)
-                  {space}
-                  <a
-                    style={{ color: "white" }}
-                    href="https://github.com/NickCarducci/commie.dev"
-                  >
-                    boiler repo
-                  </a>
-                </span>
-              )}
-              {space}
-              &image;{/**how do I set up a react app (commie.dev + netlify) */}
+              &image;
+              {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
-
-            <div
-              onMouseEnter={
-                () =>
-                  this.setState({ nodeDevtimeout: true }, () => {
-                    clearTimeout(this.nodeDevtimeout);
-                    this.nodeDevtimeout = setTimeout(() => {
-                      this.setState({ nodeDevtimeout: false });
-                    }, 5000);
-                  }) //scopebook
-              }
-              onClick={this.props.setWhy}
+          </div>
+        </span>
+        <div style={{ width: "100%", position: "relative" }}>
+          Don't good ideas destroy market benefits for use utility?
+          <span
+            style={{
+              transition: ".3s ease-in",
+              fontSize: !this.props.scrolling ? "" : "0px",
+              zIndex: "1",
+              userSelect: "none",
+              backgroundColor: "rgb(65, 90, 159)",
+              color: "white",
+              borderRadius: "10px",
+              padding: "4px 6px",
+              cursor: "pointer",
+              position: "fixed",
+              left: "20px",
+              bottom: "100px"
+            }}
+          >
+            and now,
+            {space}
+            <a
               style={{
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "white",
-                borderRadius: "10px",
-                padding: "4px 6px",
-                cursor: "pointer",
-                position: "fixed",
-                left: "20px",
-                bottom: "60px"
+                color: "white"
               }}
+              href="https://vau.money/login"
             >
-              &infin;{space}
-              {this.state.nodeDevtimeout && (
-                <a
-                  style={{ color: "white" }}
-                  href="https://github.com/NickCarducci/mastercard-backbank-digital-ocean-app"
-                >
-                  node repo
-                </a>
-              )}
-            </div>
-            <div
-              onMouseEnter={
-                () =>
-                  this.setState({ nodeDevtimeout: true }, () => {
-                    clearTimeout(this.nodeDevtimeout);
-                    this.nodeDevtimeout = setTimeout(() => {
-                      this.setState({ nodeDevtimeout: false });
-                    }, 5000);
-                  }) //scopebook
-              }
-              onClick={this.props.setWhy}
-              style={{
-                zIndex: "1",
-                userSelect: "none",
-                backgroundColor: "rgb(65, 90, 159)",
-                color: "gold",
-                borderRadius: "10px",
-                padding: "4px 6px",
-                cursor: "pointer",
-                position: "fixed",
-                left: "20px",
-                bottom: "20px"
-              }}
-            >
-              &infin;{space}
-              {this.state.nodeDevtimeout && (
-                <a
-                  style={{ color: "white" }}
-                  href="https://github.com/NickCarducci/mastercard-backbank-digital-ocean"
-                >
-                  nginx repo
-                </a>
-              )}
-            </div>
+              get your finances right
+            </a>
+          </span>
+          <div
+            onMouseEnter={
+              () =>
+                this.setState({ nodeDevtimeout: true }, () => {
+                  clearTimeout(this.nodeDevtimeout);
+                  this.nodeDevtimeout = setTimeout(() => {
+                    this.setState({ nodeDevtimeout: false });
+                  }, 5000);
+                }) //scopebook
+            }
+            onClick={this.props.setWhy}
+            style={{
+              zIndex: "1",
+              userSelect: "none",
+              backgroundColor: "rgb(65, 90, 159)",
+              color: "white",
+              borderRadius: "10px",
+              padding: "4px 6px",
+              cursor: "pointer",
+              position: "fixed",
+              left: "20px",
+              bottom: "60px"
+            }}
+          >
+            &infin;{space}
+            {this.state.nodeDevtimeout && (
+              <a
+                style={{ color: "white" }}
+                href="https://github.com/NickCarducci/mastercard-backbank-digital-ocean-app"
+              >
+                node repo
+              </a>
+            )}
+          </div>
+          <div
+            onMouseEnter={
+              () =>
+                this.setState({ nodeDevtimeout: true }, () => {
+                  clearTimeout(this.nodeDevtimeout);
+                  this.nodeDevtimeout = setTimeout(() => {
+                    this.setState({ nodeDevtimeout: false });
+                  }, 5000);
+                }) //scopebook
+            }
+            onClick={this.props.setWhy}
+            style={{
+              zIndex: "1",
+              userSelect: "none",
+              backgroundColor: "rgb(65, 90, 159)",
+              color: "gold",
+              borderRadius: "10px",
+              padding: "4px 6px",
+              cursor: "pointer",
+              position: "fixed",
+              left: "20px",
+              bottom: "20px"
+            }}
+          >
+            &infin;{space}
+            {this.state.nodeDevtimeout && (
+              <a
+                style={{ color: "white" }}
+                href="https://github.com/NickCarducci/mastercard-backbank-digital-ocean"
+              >
+                nginx repo
+              </a>
+            )}
+          </div>
+        </div>
+        <div
+          style={{
+            maxWidth: "100%",
+            opacity: ".6",
+            position: "relative",
+            width: "min-content"
+          }}
+        >
+          <div
+            style={{
+              right: "0px",
+              position: "absolute",
+              width: "50px",
+              fontSize: "12px"
+            }}
+          >
+            as low as $1/mo!
           </div>
           <div
             style={{
-              maxWidth: "100%",
-              opacity: ".6",
-              position: "relative",
-              width: "min-content"
+              right: "-80px",
+              position: "absolute",
+              width: "50px",
+              fontSize: "12px"
             }}
           >
-            <div
-              style={{
-                right: "0px",
-                position: "absolute",
-                width: "50px",
-                fontSize: "12px"
-              }}
-            >
-              as low as $1/mo!
-            </div>
-            <div
-              style={{
-                right: "-80px",
-                position: "absolute",
-                width: "50px",
-                fontSize: "12px"
-              }}
-            >
-              pay for business cloudflare/mbps $200/month with 15{space}
-              <a href="https://www.reddit.com/r/selfhosted/comments/xjl7lz/has_anyone_cloudflared_a_serverless_competitor_to/">
-                renters
-              </a>
-            </div>
-            <a
-              href="https://commie.dev"
-              style={{
-                fontFamily: "'Nabla', cursive",
-                backgroundColor: "rgb(65, 90, 159)"
-              }}
-            >
-              stop paying monthly
+            pay for business cloudflare/mbps $200/month with 15{space}
+            <a href="https://www.reddit.com/r/selfhosted/comments/xjl7lz/has_anyone_cloudflared_a_serverless_competitor_to/">
+              renters
             </a>
-            {space}
-            <br />
-            <i>Bringing outright back</i>
-            <br />
-            <button style={{ cursor: "pointer" }}>
-              $150 8gb application processor
-            </button>
-            <br />
-            0-14 sold: $15/mo{" "}
-            <span
-              //id="caching"
-              onClick={chooseFeature}
-              style={{
-                userSelect: "none",
-                cursor: "pointer",
-                color: "blue",
-                textDecoration:
-                  this.state.chosenFeature === "caching" && "underline"
-              }}
-            >
-              caching
-            </span>
-            <br />
-            15:{" "}
-            <span
-              style={{
-                color: "chocolate",
-                textDecoration:
-                  this.state.chosenFeature === "load balancing" && "underline"
-              }}
-            >
-              <span
-                //id="load balancing"
-                onClick={() =>
-                  this.setState({
-                    chosenFeature:
-                      this.state.chosenFeature !== "load balancing" &&
-                      "load balancing"
-                  })
-                }
-                style={{
-                  userSelect: "none", //pyramid discount technical
-                  cursor: "pointer",
-                  ...cftextgradientstyle
-                }}
-              >
-                load balancing, DDOS protection, and global reach
-              </span>
-            </span>
-            <br />
-            <br />
-            <div style={{ width: "200px" }}>
-              <div style={{ float: "right" }}>
-                <span
-                  style={{ color: this.state.served > 27 ? "black" : "grey" }}
-                >
-                  27: $8/mo
-                </span>
-                <br />
-                <span
-                  style={{ color: this.state.served > 44 ? "black" : "grey" }}
-                >
-                  44: $5/mo
-                </span>
-                <br />
-                <span
-                  style={{ color: this.state.served > 108 ? "black" : "grey" }}
-                >
-                  108: $2/mo
-                </span>
-              </div>
-            </div>
-            customers
-            <br />(
-            <b
-              style={{
-                color: "teal"
-              }}
-            >
-              {this.state.served}
-            </b>
-            {space}
-            <a
-              style={{ color: "black" }}
-              href="https://www.quora.com/unanswered/Is-a-pyramid-scheme-only-viable-when-there-are-service-worker-machine-rents-making-prices-higher-than-technological-competition"
-            >
-              served
-            </a>
-            ).{space}${this.state.served < 15 ? "15" : goingprice}
-            /month
-            <br />
-            <br />
-            <i>Scale down anyime</i>
-            <br />
-            You can pay $15 shipping to{" "}
-            <span
-              onClick={chooseFeature}
-              style={{
-                userSelect: "none",
-                cursor: "pointer",
-                color: "cadetblue", //darkolivegreen
-                textDecoration:
-                  this.state.chosenFeature === "retrieve and delete" &&
-                  "underline"
-              }}
-            >
-              retrieve and delete
-            </span>{" "}
-            the instance
-            <br />
-            <i>on the $150 device that you used</i>.
-            <br />
-            <br />
           </div>
+          <a
+            href="https://commie.dev"
+            style={{
+              fontFamily: "'Nabla', cursive",
+              backgroundColor: "rgb(65, 90, 159)"
+            }}
+          >
+            stop paying monthly
+          </a>
+          {space}
+          <br />
+          <i>Bringing outright back</i>
+          <br />
+          <button style={{ cursor: "pointer" }}>
+            $150 8gb application processor
+          </button>
+          <br />
+          0-14 sold: $15/mo{" "}
+          <span
+            //id="caching"
+            onClick={chooseFeature}
+            style={{
+              userSelect: "none",
+              cursor: "pointer",
+              color: "blue",
+              textDecoration:
+                this.state.chosenFeature === "caching" && "underline"
+            }}
+          >
+            caching
+          </span>
+          <br />
+          15:{" "}
+          <span
+            style={{
+              color: "chocolate",
+              textDecoration:
+                this.state.chosenFeature === "load balancing" && "underline"
+            }}
+          >
+            <span
+              //id="load balancing"
+              onClick={() =>
+                this.setState({
+                  chosenFeature:
+                    this.state.chosenFeature !== "load balancing" &&
+                    "load balancing"
+                })
+              }
+              style={{
+                userSelect: "none", //pyramid discount technical
+                cursor: "pointer",
+                ...cftextgradientstyle
+              }}
+            >
+              load balancing, DDOS protection, and global reach
+            </span>
+          </span>
+          <br />
+          <br />
+          <div style={{ width: "200px" }}>
+            <div style={{ float: "right" }}>
+              <span
+                style={{ color: this.state.served > 27 ? "black" : "grey" }}
+              >
+                27: $8/mo
+              </span>
+              <br />
+              <span
+                style={{ color: this.state.served > 44 ? "black" : "grey" }}
+              >
+                44: $5/mo
+              </span>
+              <br />
+              <span
+                style={{ color: this.state.served > 108 ? "black" : "grey" }}
+              >
+                108: $2/mo
+              </span>
+            </div>
+          </div>
+          customers
+          <br />(
+          <b
+            style={{
+              color: "teal"
+            }}
+          >
+            {this.state.served}
+          </b>
+          {space}
+          <a
+            style={{ color: "black" }}
+            href="https://www.quora.com/unanswered/Is-a-pyramid-scheme-only-viable-when-there-are-service-worker-machine-rents-making-prices-higher-than-technological-competition"
+          >
+            served
+          </a>
+          ).{space}${this.state.served < 15 ? "15" : goingprice}
+          /month
+          <br />
+          <br />
+          <i>Scale down anyime</i>
+          <br />
+          You can pay $15 shipping to{" "}
+          <span
+            onClick={chooseFeature}
+            style={{
+              userSelect: "none",
+              cursor: "pointer",
+              color: "cadetblue", //darkolivegreen
+              textDecoration:
+                this.state.chosenFeature === "retrieve and delete" &&
+                "underline"
+            }}
+          >
+            retrieve and delete
+          </span>{" "}
+          the instance
+          <br />
+          <i>on the $150 device that you used</i>.
+          <br />
+          <br />
         </div>
         {!this.state.chosenFeature && (
           <div>
