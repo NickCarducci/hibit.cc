@@ -617,6 +617,26 @@ class StopPayingMonthly extends React.Component {
               cursor: "pointer",
               position: "fixed",
               left: "20px",
+              bottom: "135px"
+            }}
+          >
+            <a href="https://vau.money/docs" style={{ color: "lightskyblue" }}>
+              Payments
+            </a>
+          </span>
+          <span
+            style={{
+              transition: ".3s ease-in",
+              fontSize: !this.props.scrolling ? "" : "0px",
+              zIndex: "1",
+              userSelect: "none",
+              backgroundColor: "rgb(65, 90, 159)",
+              color: "white",
+              borderRadius: "10px",
+              padding: "4px 6px",
+              cursor: "pointer",
+              position: "fixed",
+              left: "20px",
               bottom: "100px"
             }}
           >
