@@ -66,7 +66,7 @@ class StopPayingMonthly extends React.Component {
       <div style={{ width: "100%", maxWidth: "600px" }}>
         <span
           //zIndex: "1", i'd rather my foot in your mouth than an A+
-          onMouseEnter={
+          onClick={
             () =>
               this.setState(
                 {
@@ -297,7 +297,7 @@ class StopPayingMonthly extends React.Component {
             }}
           >
             <div
-              onMouseEnter={
+              onClick={
                 () =>
                   this.setState({ reducetimeout: true }, () => {
                     clearTimeout(this.reducetimeout);
@@ -306,7 +306,6 @@ class StopPayingMonthly extends React.Component {
                     }, 5000);
                   }) //scopebook
               }
-              onClick={this.props.setWhy}
               style={itemStyle}
             >
               <span
@@ -321,7 +320,7 @@ class StopPayingMonthly extends React.Component {
               {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
             <div
-              onMouseEnter={
+              onClick={
                 () =>
                   this.setState({ promisetimeout: true }, () => {
                     clearTimeout(this.promisetimeout);
@@ -330,7 +329,6 @@ class StopPayingMonthly extends React.Component {
                     }, 5000);
                   }) //scopebook
               }
-              onClick={this.props.setWhy}
               style={itemStyle}
             >
               <span
@@ -344,7 +342,7 @@ class StopPayingMonthly extends React.Component {
               </span>
             </div>
             <div
-              onMouseEnter={
+              onClick={
                 () =>
                   this.setState({ rusttimeout: true }, () => {
                     clearTimeout(this.rusttimeout);
@@ -353,7 +351,6 @@ class StopPayingMonthly extends React.Component {
                     }, 5000);
                   }) //scopebook
               }
-              onClick={this.props.setWhy}
               style={itemStyle}
             >
               <span
@@ -368,7 +365,7 @@ class StopPayingMonthly extends React.Component {
               {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
             <div
-              onMouseEnter={
+              onClick={
                 () =>
                   this.setState({ importtimeout: true }, () => {
                     clearTimeout(this.importtimeout);
@@ -377,7 +374,6 @@ class StopPayingMonthly extends React.Component {
                     }, 5000);
                   }) //scopebook
               }
-              onClick={this.props.setWhy}
               style={itemStyle}
             >
               <span
@@ -392,7 +388,7 @@ class StopPayingMonthly extends React.Component {
             </div>
 
             <div
-              onMouseEnter={
+              onClick={
                 () =>
                   this.setState({ crypttimeout: true }, () => {
                     clearTimeout(this.crypttimeout);
@@ -401,7 +397,6 @@ class StopPayingMonthly extends React.Component {
                     }, 5000);
                   }) //scopebook
               }
-              onClick={this.props.setWhy}
               style={itemStyle}
             >
               <span
@@ -415,7 +410,7 @@ class StopPayingMonthly extends React.Component {
               </span>
             </div>
             <div
-              onMouseEnter={
+              onClick={
                 () =>
                   this.setState({ screentimeout: true }, () => {
                     clearTimeout(this.screentimeout);
@@ -424,7 +419,6 @@ class StopPayingMonthly extends React.Component {
                     }, 5000);
                   }) //scopebook
               }
-              onClick={this.props.setWhy}
               style={itemStyle}
             >
               <span
@@ -438,7 +432,7 @@ class StopPayingMonthly extends React.Component {
               </span>
             </div>
             <div
-              onMouseEnter={
+              onClick={
                 () =>
                   this.setState({ csstimeout: true }, () => {
                     clearTimeout(this.csstimeout);
@@ -447,7 +441,6 @@ class StopPayingMonthly extends React.Component {
                     }, 5000);
                   }) //scopebook
               }
-              onClick={this.props.setWhy}
               style={itemStyle}
             >
               <span
@@ -463,7 +456,7 @@ class StopPayingMonthly extends React.Component {
               {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
             <div
-              onMouseEnter={
+              onClick={
                 () =>
                   this.setState({ jstimeout: true }, () => {
                     clearTimeout(this.jstimeout);
@@ -472,7 +465,6 @@ class StopPayingMonthly extends React.Component {
                     }, 5000);
                   }) //scopebook
               }
-              onClick={this.props.setWhy}
               style={itemStyle}
             >
               <span
@@ -488,7 +480,7 @@ class StopPayingMonthly extends React.Component {
               {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
             <div
-              onMouseEnter={
+              onClick={
                 () =>
                   this.setState({ emailtimeout: true }, () => {
                     clearTimeout(this.emailtimeout);
@@ -497,7 +489,6 @@ class StopPayingMonthly extends React.Component {
                     }, 5000);
                   }) //scopebook
               }
-              onClick={this.props.setWhy}
               style={itemStyle}
             >
               <span
@@ -513,7 +504,7 @@ class StopPayingMonthly extends React.Component {
               {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
             <div
-              onMouseEnter={
+              onClick={
                 () =>
                   this.setState({ traptimeout: true }, () => {
                     clearTimeout(this.traptimeout);
@@ -522,13 +513,12 @@ class StopPayingMonthly extends React.Component {
                     }, 5000);
                   }) //scopebook
               }
-              onClick={this.props.setWhy}
               style={itemStyle}
             >
-              ?{/**how do I set up a react app (commie.dev + netlify) */}
+              d
             </div>
             <div
-              onMouseEnter={
+              onClick={
                 () =>
                   this.setState({ sidemenutimeout: true }, () => {
                     clearTimeout(this.sidemenutimeout);
@@ -537,16 +527,15 @@ class StopPayingMonthly extends React.Component {
                     }, 5000);
                   }) //scopebook
               }
-              onClick={this.props.setWhy}
               style={itemStyle}
             >
               <span role="img" aria-label="masks">
                 🎭
               </span>
-              {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
+            {/*
             <div
-              onMouseEnter={
+              onClick={
                 () =>
                   this.setState({ frametimeout: true }, () => {
                     clearTimeout(this.frametimeout);
@@ -555,16 +544,15 @@ class StopPayingMonthly extends React.Component {
                     }, 5000);
                   }) //scopebook
               }
-              onClick={this.props.setWhy}
+              
               style={itemStyle}
             >
               <span role="img" aria-label="masks">
                 🎭
               </span>
-              {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
             <div
-              onMouseEnter={
+              onClick={
                 () =>
                   this.setState({ anontimeout: true }, () => {
                     clearTimeout(this.anontimeout);
@@ -573,18 +561,18 @@ class StopPayingMonthly extends React.Component {
                     }, 5000);
                   }) //scopebook
               }
-              onClick={this.props.setWhy}
+              
               style={itemStyle}
             >
               <span role="img" aria-label="masks">
                 🎭
               </span>
-              {/**how do I set up a react app (commie.dev + netlify) */}
-            </div>
+              {/**how do I set up a react app (commie.dev + netlify) 
+            </div>*/}
             <span
               role="img"
               aria-label="camera"
-              onMouseEnter={
+              onClick={
                 () =>
                   this.setState({ runscreenshottimeout: true }, () => {
                     clearTimeout(this.runscreenshottimeout);
@@ -593,13 +581,12 @@ class StopPayingMonthly extends React.Component {
                     }, 5000);
                   }) //scopebook
               }
-              onClick={this.props.setWhy}
               style={itemStyle}
             >
               &#128247;
             </span>
             <div
-              onMouseEnter={
+              onClick={
                 () =>
                   this.setState({ designUItimeout: true }, () => {
                     clearTimeout(this.designUItimeout);
@@ -608,7 +595,6 @@ class StopPayingMonthly extends React.Component {
                     }, 5000);
                   }) //scopebook
               }
-              onClick={this.props.setWhy}
               style={itemStyle}
             >
               &image;
@@ -646,7 +632,7 @@ class StopPayingMonthly extends React.Component {
             </a>
           </span>
           <div
-            onMouseEnter={
+            onClick={
               () =>
                 this.setState({ nodeDevtimeout: true }, () => {
                   clearTimeout(this.nodeDevtimeout);
@@ -655,7 +641,6 @@ class StopPayingMonthly extends React.Component {
                   }, 5000);
                 }) //scopebook
             }
-            onClick={this.props.setWhy}
             style={{
               zIndex: "1",
               userSelect: "none",
@@ -680,7 +665,7 @@ class StopPayingMonthly extends React.Component {
             )}
           </div>
           <div
-            onMouseEnter={
+            onClick={
               () =>
                 this.setState({ nodeDevtimeout: true }, () => {
                   clearTimeout(this.nodeDevtimeout);
@@ -689,7 +674,6 @@ class StopPayingMonthly extends React.Component {
                   }, 5000);
                 }) //scopebook
             }
-            onClick={this.props.setWhy}
             style={{
               zIndex: "1",
               userSelect: "none",
@@ -877,7 +861,7 @@ class StopPayingMonthly extends React.Component {
             <i
               style={{ cursor: "pointer" }}
               onBlur={() => this.setState({ hoveringplanning: false })}
-              onMouseEnter={() =>
+              onClick={() =>
                 this.setState({ hoveringplanning: true }, () => {
                   clearTimeout(this.hoveringplanningtimeout);
                   this.hoveringplanningtimeout = setTimeout(() => {
