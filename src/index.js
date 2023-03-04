@@ -1,4 +1,4 @@
-import React /*, { useEffect, useRef }*/ from "react";
+import React, { useEffect, useState /*, { useEffect, useRef }*/ } from "react";
 import { UAParser } from "ua-parser-js";
 import { createRoot } from "react-dom/client";
 //import { createPortal } from "react-dom";
@@ -87,15 +87,31 @@ class PathRouter extends React.Component {
   }
 }
 
+var parser = new UAParser();
+const name = parser.getBrowser().name;
+const getWidth = () =>
+  name.includes("Safari") ? window.screen.availWidth - 20 : window.innerWidth;
+const getHeight = () =>
+  name.includes("Safari") ? window.screen.availHeight : window.innerHeight;
 const ClassHook = () => {
-  var parser = new UAParser();
-  const name = parser.getBrowser().name;
-  const width = name.includes("Safari")
-    ? window.screen.availWidth
-    : window.innerWidth;
-  const height = name.includes("Safari")
-    ? window.screen.availHeight
-    : window.innerHeight;
+  //window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  let [width, setWidth] = useState(getWidth());
+  let [height, setHeight] = useState(getHeight());
+  useEffect(() => {
+    let timeoutId = null;
+    const resizeListener = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setHeight(getHeight());
+        setWidth(getHeight());
+      }, 150);
+    };
+    window.addEventListener("resize", resizeListener);
+    return () => {
+      window.removeEventListener("resize", resizeListener);
+    };
+  }, []);
+
   return (
     <PathRouter
       paths={useParams()}
@@ -105,7 +121,7 @@ const ClassHook = () => {
         height,
         lastWidth: width,
         width,
-        availHeight: name ? window.screen.availHeight - 20 : window.innerHeight
+        availHeight: height
       }}
     />
   );
