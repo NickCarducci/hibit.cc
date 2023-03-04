@@ -62,27 +62,26 @@ class StopPayingMonthly extends React.Component {
       width: "max-content",
       float: "right"
     };
+    const timeoutThis = (name) => {
+      const title = name; //+ "Timeout";
+      this.setState({ fanfare: title }, () => {
+        clearTimeout(this[title]);
+        this[title] = setTimeout(() => {
+          this.setState({ fanfare: false });
+        }, 5000);
+      });
+    }; //scopebook
+    console.log(this.props.availHeight, this.props.width);
     return (
       <div style={{ width: "100%", maxWidth: "600px" }}>
         <span
           //zIndex: "1", i'd rather my foot in your mouth than an A+
-          onClick={
-            () =>
-              this.setState(
-                {
+          //onClick={() => timeoutThis("firewallplusTimeout")}
+          /*
                   firewallPlustimeout:
                     this.state.firewallPlustimeout === true
                       ? 1
-                      : !this.state.firewallPlustimeout
-                },
-                () => {
-                  clearTimeout(this.firewallPlustimeout);
-                  this.firewallPlustimeout = setTimeout(() => {
-                    this.setState({ firewallPlustimeout: false });
-                  }, 5000);
-                }
-              ) //scopebook
-          }
+                      : !this.state.firewallPlustimeout */
           style={{
             position: "fixed",
             textAlign: "right",
@@ -101,7 +100,7 @@ class StopPayingMonthly extends React.Component {
             cursor: "pointer"
           }}
         >
-          {this.state.firewallPlustimeout === 1 ? (
+          {this.state.fanfare === "firewallPlustimeout" ? (
             <a
               style={{ color: "white" }}
               href="https://github.com/w3c/strategy/issues/358"
@@ -109,7 +108,7 @@ class StopPayingMonthly extends React.Component {
               all-methods-local-proxy
             </a>
           ) : (
-            this.state.firewallPlustimeout && (
+            this.state.fanfare === "firewallPlustimeout" && (
               <a
                 style={{ color: "white" }}
                 href="https://www.nginx.com/learn/waf-web-application-firewall/"
@@ -119,7 +118,7 @@ class StopPayingMonthly extends React.Component {
             )
           )}
 
-          {this.state.designUItimeout ? (
+          {this.state.fanfare === "designUITimeout" ? (
             <span>
               Monokai 10px PreviewEdit off (change file name if freeze)
               {space}
@@ -130,14 +129,14 @@ class StopPayingMonthly extends React.Component {
                 boiler repo
               </a>
             </span>
-          ) : this.state.runscreenshottimeout ? (
+          ) : this.state.fanfare === "runscreenshotTimeout" ? (
             <a
               style={{ color: "white" }}
               href="https://www.lifewire.com/take-screenshot-using-dev-tools-on-google-chrome-5097913"
             >
               run command {">"} screenshot
             </a>
-          ) : this.state.anontimeout ? (
+          ) : this.state.fanfare === "anonTimeout" ? (
             <span>
               <a
                 style={{ color: "white" }}
@@ -146,7 +145,7 @@ class StopPayingMonthly extends React.Component {
                 auth repo
               </a>
             </span>
-          ) : this.state.frametimeout ? (
+          ) : this.state.fanfare === "frameTimeout" ? (
             <span>
               <a
                 style={{ color: "white" }}
@@ -155,7 +154,7 @@ class StopPayingMonthly extends React.Component {
                 frame repo
               </a>
             </span>
-          ) : this.state.sidemenutimeout ? (
+          ) : this.state.fanfare === "sidemenuTimeout" ? (
             <span>
               <a
                 style={{ color: "white" }}
@@ -164,14 +163,14 @@ class StopPayingMonthly extends React.Component {
                 sidemenu repo
               </a>
             </span>
-          ) : this.state.traptimeout ? (
+          ) : this.state.fanfare === "trapTimeout" ? (
             <span>
               <a style={{ color: "white" }} href="https://codesandbox.io/">
                 inspect hidden divs / rename sandbox loops / `prettier-ignore`
                 one line
               </a>
             </span>
-          ) : this.state.emailtimeout ? (
+          ) : this.state.fanfare === "emailTimeout" ? (
             <span>
               <a
                 style={{ color: "white" }}
@@ -188,7 +187,7 @@ class StopPayingMonthly extends React.Component {
               </a>
               /migadu)
             </span>
-          ) : this.state.jstimeout ? (
+          ) : this.state.fanfare === "jsTimeout" ? (
             <span>
               <a
                 style={{ color: "white" }}
@@ -197,13 +196,13 @@ class StopPayingMonthly extends React.Component {
                 new Promise(r={">"} r(JSON.stringify))
               </a>
             </span>
-          ) : this.state.csstimeout ? (
+          ) : this.state.fanfare === "cssTimeout" ? (
             <span>
               Div’s offsetHeight is is just that, to the parent div.
               <br />
               Only position:”relative” holds absolute children in place
             </span>
-          ) : this.state.screentimeout ? (
+          ) : this.state.fanfare === "screenTimeout" ? (
             <span>
               Quicktime screen recording `win+
               <span style={{ textDecoration: "line-through" }}>shift</span>
@@ -215,7 +214,7 @@ class StopPayingMonthly extends React.Component {
                 in-microphone
               </a>
             </span>
-          ) : this.state.crypttimeout ? (
+          ) : this.state.fanfare === "cryptTimeout" ? (
             <span>
               <a
                 style={{ color: "white" }}
@@ -238,7 +237,7 @@ class StopPayingMonthly extends React.Component {
                 rules
               </a>
             </span>
-          ) : this.state.importtimeout ? (
+          ) : this.state.fanfare === "importTimeout" ? (
             <span>
               <a
                 style={{ color: "white" }}
@@ -248,15 +247,15 @@ class StopPayingMonthly extends React.Component {
               </a>{" "}
               then turn
             </span>
-          ) : this.state.rusttimeout ? (
+          ) : this.state.fanfare === "rustTimeout" ? (
             <span>Struct objects per field instantiate implementations</span>
-          ) : this.state.promisetimeout ? (
+          ) : this.state.fanfare === "promiseTimeout" ? (
             <span>
               Promise.all(await stuff.map(x={">"}new Promise(r={">"}
               {"{"}
               const done = JSON.stringify({}) return r(done){"}"})))
             </span>
-          ) : this.state.reducetimeout ? (
+          ) : this.state.fanfare === "reduceTimeout" ? (
             <span style={{}}>
               {`{
                   ...Object.keys(address).reduce(
@@ -285,29 +284,28 @@ class StopPayingMonthly extends React.Component {
           <div
             style={{
               textAlign: "right",
-              width: "80px",
-              //height: Math.min(this.props.availHeight, 300),
+              width:
+                this.props.availHeight < 300
+                  ? "160px"
+                  : this.props.availHeight < 400
+                  ? "120px"
+                  : "80px",
+              height: Math.min(this.props.availHeight, 600),
               top: "80px",
               right: "0px",
               position: "absolute",
-              columnCount: 2
+              columnCount:
+                this.props.availHeight < 300
+                  ? 4
+                  : this.props.availHeight < 400
+                  ? 3
+                  : 2
               //display: "flex",
               //flexWrap: "wrap"
               //transform: "rotate(90deg)" //translate(0%,0%)
             }}
           >
-            <div
-              onClick={
-                () =>
-                  this.setState({ reducetimeout: true }, () => {
-                    clearTimeout(this.reducetimeout);
-                    this.reducetimeout = setTimeout(() => {
-                      this.setState({ reducetimeout: false });
-                    }, 5000);
-                  }) //scopebook
-              }
-              style={itemStyle}
-            >
+            <div onClick={() => timeoutThis("reduceTimeout")} style={itemStyle}>
               <span
                 style={
                   {
@@ -320,15 +318,7 @@ class StopPayingMonthly extends React.Component {
               {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
             <div
-              onClick={
-                () =>
-                  this.setState({ promisetimeout: true }, () => {
-                    clearTimeout(this.promisetimeout);
-                    this.promisetimeout = setTimeout(() => {
-                      this.setState({ promisetimeout: false });
-                    }, 5000);
-                  }) //scopebook
-              }
+              onClick={() => timeoutThis("promiseTimeout")}
               style={itemStyle}
             >
               <span
@@ -341,18 +331,7 @@ class StopPayingMonthly extends React.Component {
                 json promise all
               </span>
             </div>
-            <div
-              onClick={
-                () =>
-                  this.setState({ rusttimeout: true }, () => {
-                    clearTimeout(this.rusttimeout);
-                    this.rusttimeout = setTimeout(() => {
-                      this.setState({ rusttimeout: false });
-                    }, 5000);
-                  }) //scopebook
-              }
-              style={itemStyle}
-            >
+            <div onClick={() => timeoutThis("rusticTimeout")} style={itemStyle}>
               <span
                 style={
                   {
@@ -364,18 +343,7 @@ class StopPayingMonthly extends React.Component {
               </span>
               {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
-            <div
-              onClick={
-                () =>
-                  this.setState({ importtimeout: true }, () => {
-                    clearTimeout(this.importtimeout);
-                    this.importtimeout = setTimeout(() => {
-                      this.setState({ importtimeout: false });
-                    }, 5000);
-                  }) //scopebook
-              }
-              style={itemStyle}
-            >
+            <div onClick={() => timeoutThis("importTimeout")} style={itemStyle}>
               <span
                 style={
                   {
@@ -387,18 +355,7 @@ class StopPayingMonthly extends React.Component {
               </span>
             </div>
 
-            <div
-              onClick={
-                () =>
-                  this.setState({ crypttimeout: true }, () => {
-                    clearTimeout(this.crypttimeout);
-                    this.crypttimeout = setTimeout(() => {
-                      this.setState({ crypttimeout: false });
-                    }, 5000);
-                  }) //scopebook
-              }
-              style={itemStyle}
-            >
+            <div onClick={() => timeoutThis("cryptTimeout")} style={itemStyle}>
               <span
                 style={
                   {
@@ -409,18 +366,7 @@ class StopPayingMonthly extends React.Component {
                 crypt
               </span>
             </div>
-            <div
-              onClick={
-                () =>
-                  this.setState({ screentimeout: true }, () => {
-                    clearTimeout(this.screentimeout);
-                    this.screentimeout = setTimeout(() => {
-                      this.setState({ screentimeout: false });
-                    }, 5000);
-                  }) //scopebook
-              }
-              style={itemStyle}
-            >
+            <div onClick={() => timeoutThis("screenTimeout")} style={itemStyle}>
               <span
                 style={
                   {
@@ -431,18 +377,7 @@ class StopPayingMonthly extends React.Component {
                 scr
               </span>
             </div>
-            <div
-              onClick={
-                () =>
-                  this.setState({ csstimeout: true }, () => {
-                    clearTimeout(this.csstimeout);
-                    this.csstimeout = setTimeout(() => {
-                      this.setState({ csstimeout: false });
-                    }, 5000);
-                  }) //scopebook
-              }
-              style={itemStyle}
-            >
+            <div onClick={() => timeoutThis("cssTimeout")} style={itemStyle}>
               <span
                 style={
                   {
@@ -455,18 +390,7 @@ class StopPayingMonthly extends React.Component {
               </span>
               {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
-            <div
-              onClick={
-                () =>
-                  this.setState({ jstimeout: true }, () => {
-                    clearTimeout(this.jstimeout);
-                    this.jstimeout = setTimeout(() => {
-                      this.setState({ jstimeout: false });
-                    }, 5000);
-                  }) //scopebook
-              }
-              style={itemStyle}
-            >
+            <div onClick={() => timeoutThis("jsTimeout")} style={itemStyle}>
               <span
                 style={
                   {
@@ -479,18 +403,7 @@ class StopPayingMonthly extends React.Component {
               </span>
               {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
-            <div
-              onClick={
-                () =>
-                  this.setState({ emailtimeout: true }, () => {
-                    clearTimeout(this.emailtimeout);
-                    this.emailtimeout = setTimeout(() => {
-                      this.setState({ emailtimeout: false });
-                    }, 5000);
-                  }) //scopebook
-              }
-              style={itemStyle}
-            >
+            <div onClick={() => timeoutThis("emailTimeout")} style={itemStyle}>
               <span
                 style={{
                   lineHeight: "10px",
@@ -503,30 +416,11 @@ class StopPayingMonthly extends React.Component {
               </span>
               {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
-            <div
-              onClick={
-                () =>
-                  this.setState({ traptimeout: true }, () => {
-                    clearTimeout(this.traptimeout);
-                    this.traptimeout = setTimeout(() => {
-                      this.setState({ traptimeout: false });
-                    }, 5000);
-                  }) //scopebook
-              }
-              style={itemStyle}
-            >
+            <div onClick={() => timeoutThis("trapTimeout")} style={itemStyle}>
               d
             </div>
             <div
-              onClick={
-                () =>
-                  this.setState({ sidemenutimeout: true }, () => {
-                    clearTimeout(this.sidemenutimeout);
-                    this.sidemenutimeout = setTimeout(() => {
-                      this.setState({ sidemenutimeout: false });
-                    }, 5000);
-                  }) //scopebook
-              }
+              onClick={() => timeoutThis("sidemenuTimeout")}
               style={itemStyle}
             >
               <span role="img" aria-label="masks">
@@ -572,29 +466,13 @@ class StopPayingMonthly extends React.Component {
             <span
               role="img"
               aria-label="camera"
-              onClick={
-                () =>
-                  this.setState({ runscreenshottimeout: true }, () => {
-                    clearTimeout(this.runscreenshottimeout);
-                    this.runscreenshottimeout = setTimeout(() => {
-                      this.setState({ runscreenshottimeout: false });
-                    }, 5000);
-                  }) //scopebook
-              }
+              onClick={() => timeoutThis("runscreenshotTimeout")}
               style={itemStyle}
             >
               &#128247;
             </span>
             <div
-              onClick={
-                () =>
-                  this.setState({ designUItimeout: true }, () => {
-                    clearTimeout(this.designUItimeout);
-                    this.designUItimeout = setTimeout(() => {
-                      this.setState({ designUItimeout: false });
-                    }, 5000);
-                  }) //scopebook
-              }
+              onClick={() => timeoutThis("designUITimeout")}
               style={itemStyle}
             >
               &image;
@@ -652,15 +530,7 @@ class StopPayingMonthly extends React.Component {
             </a>
           </span>
           <div
-            onClick={
-              () =>
-                this.setState({ nodeDevtimeout: true }, () => {
-                  clearTimeout(this.nodeDevtimeout);
-                  this.nodeDevtimeout = setTimeout(() => {
-                    this.setState({ nodeDevtimeout: false });
-                  }, 5000);
-                }) //scopebook
-            }
+            onClick={() => timeoutThis("nodedevTimeout")}
             style={{
               zIndex: "1",
               userSelect: "none",
@@ -685,15 +555,7 @@ class StopPayingMonthly extends React.Component {
             )}
           </div>
           <div
-            onClick={
-              () =>
-                this.setState({ nodeDevtimeout: true }, () => {
-                  clearTimeout(this.nodeDevtimeout);
-                  this.nodeDevtimeout = setTimeout(() => {
-                    this.setState({ nodeDevtimeout: false });
-                  }, 5000);
-                }) //scopebook
-            }
+            onClick={() => timeoutThis("nodedevTimeout")}
             style={{
               zIndex: "1",
               userSelect: "none",
