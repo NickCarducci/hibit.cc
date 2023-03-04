@@ -478,6 +478,17 @@ class StopPayingMonthly extends React.Component {
               &image;
               {/**how do I set up a react app (commie.dev + netlify) */}
             </div>
+            <a
+              style={{
+                ...itemStyle,
+                marginTop: "12px",
+                fontSize: "12px",
+                transform: "rotate(90deg)"
+              }}
+              href="https://stackoverflow.com/questions/38864033/whats-the-proper-way-of-passing-a-ref-to-a-prop/55621873"
+            >
+              react
+            </a>
           </div>
         </span>
         <div style={{ width: "100%", position: "relative" }}>
@@ -498,6 +509,21 @@ class StopPayingMonthly extends React.Component {
               bottom: "135px"
             }}
           >
+            <div
+              style={{
+                width: "max-content",
+                position: "absolute",
+                color: "black",
+                fontSize: "12px",
+                top: "-20px"
+              }}
+            >
+              Don't sweat, your{space}
+              <span style={{ textDecoration: "line-through" }}>
+                bearer token
+              </span>
+              {space}'X-Auth-Key' is usually your global key
+            </div>
             <a href="https://vau.money/docs" style={{ color: "lightskyblue" }}>
               Payments
             </a>
