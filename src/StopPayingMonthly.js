@@ -511,6 +511,56 @@ class StopPayingMonthly extends React.Component {
           >
             <div
               style={{
+                padding: "8px",
+                color: "rosybrown", // "lightcoral",  // "palevioletred",
+                backgroundColor: "lightsteelblue",
+                transition: ".3s ease-in",
+                maxWidth: "90vw",
+                width: "max-content",
+                fontSize: this.state.openCloudflare ? "12px" : "0px",
+                position: "absolute",
+                top: "-195px"
+              }}
+            >
+              {` URI = "accounts/<YOUR_ACCOUNT>/custom_ns"
+                curl -X POST "https://api.cloudflare.com/client/v4/$URI" \\
+                -H 'X-Auth-Key:  <YOUR_KEY>' \\ 
+                -H 'X-Auth-Email: <YOUR_EMAIL>’ \\
+                -H 'Content-Type: application/json' \\
+                -d '{
+                "ns_name": "dns1.p01.nsone.net",
+                "ns_name": "dns2.p01.nsone.net", 
+                "ns_name": "dns3.p01.nsone.net",
+                "ns_name": "dns4.p01.nsone.net"
+                }'`
+                .split("\n")
+                .map((x, i) => (
+                  <span>
+                    {i === 0 ? (
+                      <a href="https://developers.cloudflare.com/dns/additional-options/custom-nameservers/">
+                        <span role="img" aria-label="pig">
+                          🐷
+                        </span>
+                      </a>
+                    ) : i === 5 ? (
+                      <span>
+                        <a href="https://netlify.com">deploy</a>
+                        {space}
+                        <a href="https://namecheap.com">domains</a>
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                    {
+                      x //.replaceAll("/", "")
+                    }
+                    <br />
+                  </span>
+                ))}
+            </div>
+            <div
+              style={{
+                maxWidth: "90vw",
                 width: "max-content",
                 position: "absolute",
                 color: "black",
@@ -528,9 +578,14 @@ class StopPayingMonthly extends React.Component {
               </a>
               {space}token
               {space}
-              <span style={{ textDecoration: "line-through" }}>
-                'X-Auth-Key'
-              </span>
+              <i
+                onClick={() =>
+                  this.setState({ openCloudflare: !this.state.openCloudflare })
+                }
+                style={{ textDecoration: "underline" }}
+              >
+                and your 'X-Auth-Key'
+              </i>
               {space}is usually{space}
               <a href="https://developers.cloudflare.com/fundamentals/api/reference/permissions/">
                 your
