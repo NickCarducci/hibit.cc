@@ -522,8 +522,8 @@ class StopPayingMonthly extends React.Component {
                 top: "-195px"
               }}
             >
-              {` URI = "accounts/<YOUR_ACCOUNT>/custom_ns"
-                curl -X POST "https://api.cloudflare.com/client/v4/$URI" \\
+              {`
+              curl -X POST "https://api.cloudflare.com/client/v4/$URI" \\
                 -H 'X-Auth-Key:  <YOUR_KEY>' \\ 
                 -H 'X-Auth-Email: <YOUR_EMAIL>’ \\
                 -H 'Content-Type: application/json' \\
@@ -536,7 +536,15 @@ class StopPayingMonthly extends React.Component {
                 .split("\n")
                 .map((x, i) => (
                   <span>
+                    {i === 0 ? ` URI = "accounts/` : ""}
                     {i === 0 ? (
+                      <a href="https://markethistory.quora.com/Is-Cloudflare-as-a-registrar-worth-the-support-lock-in-to-store-WHOIS-information-at-another-build-and-deploy-companys">{`<YOUR_ACCOUNT>`}</a>
+                    ) : (
+                      ""
+                    )}
+                    {i === 0 ? `/custom_ns"` : ""}
+
+                    {i === 1 ? (
                       <a href="https://developers.cloudflare.com/dns/additional-options/custom-nameservers/">
                         <span role="img" aria-label="pig">
                           🐷
