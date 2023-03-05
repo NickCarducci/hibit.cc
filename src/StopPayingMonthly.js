@@ -518,11 +518,19 @@ class StopPayingMonthly extends React.Component {
                 top: "-20px"
               }}
             >
-              Don't sweat, your{space}
+              Don't{space}
+              <a href="https://developers.cloudflare.com/pages/platform/api/#make-requests">
+                sweat
+              </a>
+              , your{space}
               <span style={{ textDecoration: "line-through" }}>
                 bearer token
               </span>
-              {space}'X-Auth-Key' is usually your global key
+              {space}'X-Auth-Key' is usually{space}
+              <a href="https://developers.cloudflare.com/fundamentals/api/reference/permissions/">
+                your
+              </a>
+              {space}global key
             </div>
             <a href="https://vau.money/docs" style={{ color: "lightskyblue" }}>
               Payments
