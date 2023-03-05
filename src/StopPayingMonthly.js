@@ -523,10 +523,15 @@ class StopPayingMonthly extends React.Component {
                 sweat
               </a>
               , your{space}
+              <a href="https://developers.cloudflare.com/fundamentals/api/how-to/make-api-calls/">
+                Bearer
+              </a>
+              {space}token
+              {space}
               <span style={{ textDecoration: "line-through" }}>
-                bearer token
+                'X-Auth-Key'
               </span>
-              {space}'X-Auth-Key' is usually{space}
+              {space}is usually{space}
               <a href="https://developers.cloudflare.com/fundamentals/api/reference/permissions/">
                 your
               </a>
