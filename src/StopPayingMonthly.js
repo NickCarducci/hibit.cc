@@ -574,9 +574,12 @@ class StopPayingMonthly extends React.Component {
                 position: "absolute",
                 color: "black",
                 fontSize: "12px",
-                top: "-40px"
+                top: "-60px"
               }}
             >
+              no caught runtime exception (results CORS error) usually are
+              undefined
+              <br />
               webhook{space}
               <a href="https://www.quora.com/unanswered/Can-you-call-to-resolve-an-asynchronous-function-from-Express-middleware-thats-declared-in-the-Node-js-process-scope">
                 /chute
