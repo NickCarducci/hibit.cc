@@ -538,6 +538,7 @@ class StopPayingMonthly extends React.Component {
                   <span>
                     {i === 0 ? ` URI = "accounts/` : ""}
                     {i === 0 ? (
+                      //WHOIS partnership person beneficiary (to avoid probate) vau.money/login, /docs
                       <a href="https://markethistory.quora.com/Is-Cloudflare-as-a-registrar-worth-the-support-lock-in-to-store-WHOIS-information-at-another-build-and-deploy-companys">{`<YOUR_ACCOUNT>`}</a>
                     ) : (
                       ""
@@ -573,9 +574,14 @@ class StopPayingMonthly extends React.Component {
                 position: "absolute",
                 color: "black",
                 fontSize: "12px",
-                top: "-20px"
+                top: "-40px"
               }}
             >
+              webhook{space}
+              <a href="https://www.quora.com/unanswered/Can-you-call-to-resolve-an-asynchronous-function-from-Express-middleware-thats-declared-in-the-Node-js-process-scope">
+                /chute
+              </a>
+              {space}settings (holler) <br />
               Don't{space}
               <a href="https://developers.cloudflare.com/pages/platform/api/#make-requests">
                 sweat
@@ -893,7 +899,9 @@ class StopPayingMonthly extends React.Component {
           </div>
         )}
         <br />
-        <i style={{ color: "grey" }}>nothing</i>
+        <a href="https://courttechnology.quora.com/Can-another-person-force-someone-into-bankruptcy-not-the-state-1">
+          <i style={{ color: "grey" }}>nothing</i>
+        </a>
         {/*Security Assertion Markup Language (SAML) */}
       </div>
     );
