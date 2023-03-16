@@ -1,7 +1,7 @@
 import React from "react";
 
 class StopPayingMonthly extends React.Component {
-  state = { served: 0 };
+  state = { served: 0, hovPayments: true };
   componentWillUnmount = () => {
     clearTimeout(this.runscreenshottimeout);
     clearTimeout(this.firewallPlustimeout);
@@ -62,7 +62,7 @@ class StopPayingMonthly extends React.Component {
       width: "max-content",
       float: "right"
     };
-    const timeoutThis = (name) => {
+    const timeoutThis = (name, timeout) => {
       const title = name; //+ "Timeout";
       this.setState({ fanfare: title }, () => {
         clearTimeout(this[title]);
@@ -568,7 +568,56 @@ class StopPayingMonthly extends React.Component {
                 ))}
             </div>
             <div
+              onMouseEnter={() => clearTimeout(this.hovPayments)}
               style={{
+                display: this.state.fanfare === "hovPayments" ? "flex" : "none",
+                flexWrap: "wrap-reverse",
+                direction: "rtl",
+                maxWidth: "90vw",
+                width: "max-content",
+                position: "absolute",
+                color: "black",
+                fontSize: "12px",
+                bottom: "40px"
+              }}
+            >
+              {`I’m not interested in platform charges but for fees and
+              subscriptions, this ticket pertains to direct charges. [Each
+              Connect account has its own routing and account number. Standard
+              accounts cannot Issue cards and are free, however; developers must
+              clone accounts to a Custom type that begins at $2/mo to “accept
+              TOS for card_issuing” to then spend money other than by either ACH
+              payouts or in the Connect app. All (Custom, Express, and Standard)
+              accounts can receive funds by routing and account number.] When
+              enabling card_issuing for a Custom account the developer must
+              accept the terms of Celtic Bank member FDIC (the subject of this
+              ticket) on behalf of the users. I just want to know from you if
+              deposits are held by Celtic Bank when codified for either Standard
+              or Custom accounts; are received funds (by either routing and
+              account direct, user-codified, either ACH payouts or connect) held
+              with Celtic Bank, when an account is Custom alone, or specifically
+              when tos_card_issuance is accepted? I can assume Celtic Bank FDIC
+              does “invest” with the capital, as users’ linked bank/card
+              accounts for top offs/payouts do, I can assert from extensive
+              research in the payments industry before finally knowing fremium
+              marketplace facilitators must use Stripe, and those banks lend
+              deposits instead of take fees to operate, which is fully haram
+              against cash-current non-responsive third party donee
+              beneficiaries surrendered for factors’ immaterial marginal utility
+              value benefit.`
+                .replaceAll("\n", " ")
+                .replaceAll(/[ ]+/g, " ")
+                .replaceAll(" ", " ~/")
+                .split("~/")
+                .reverse()
+                .map((x) => (
+                  <span style={{ margin: "0px 2px" }}>{x}</span>
+                ))}
+            </div>
+            <div
+              style={{
+                display:
+                  this.state.fanfare !== "hovPayments" ? "block" : "none",
                 maxWidth: "90vw",
                 width: "max-content",
                 position: "absolute",
@@ -609,9 +658,15 @@ class StopPayingMonthly extends React.Component {
               </a>
               {space}global key
             </div>
-            <a href="https://vau.money/docs" style={{ color: "lightskyblue" }}>
+            <a
+              onMouseEnter={() => timeoutThis("hovPayments", 5000)}
+              href="https://vau.money/docs"
+              style={{ color: "lightskyblue" }}
+            >
               Payments
             </a>
+            &nbsp; &nbsp;
+            <span onClick={() => this.setState({ fanfare: false })}>x</span>
           </span>
           <span
             style={{
