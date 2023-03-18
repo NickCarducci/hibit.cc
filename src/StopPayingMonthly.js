@@ -567,21 +567,28 @@ class StopPayingMonthly extends React.Component {
                   </span>
                 ))}
             </div>
-            <div
-              onMouseEnter={() => clearTimeout(this.hovPayments)}
+            <span
               style={{
-                display: this.state.fanfare === "hovPayments" ? "flex" : "none",
-                flexWrap: "wrap-reverse",
-                direction: "rtl",
-                maxWidth: "90vw",
-                width: "max-content",
-                position: "absolute",
-                color: "black",
-                fontSize: "12px",
-                bottom: "40px"
+                direction: "ltr"
               }}
             >
-              {`I’m not interested in platform charges but for fees and
+              <div
+                onMouseEnter={() => clearTimeout(this.hovPayments)}
+                style={{
+                  display:
+                    this.state.fanfare === "hovPayments" ? "flex" : "none",
+                  justifyContent: "flex-end",
+                  flexWrap: "wrap-reverse",
+                  direction: "rtl",
+                  maxWidth: "90vw",
+                  width: "max-content",
+                  position: "absolute",
+                  color: "black",
+                  fontSize: "12px",
+                  bottom: "40px"
+                }}
+              >
+                {`I’m not interested in platform charges but for fees and
               subscriptions, this ticket pertains to direct charges. [Each
               Connect account has its own routing and account number. Standard
               accounts cannot Issue cards and are free, however; developers must
@@ -605,15 +612,23 @@ class StopPayingMonthly extends React.Component {
               against cash-current non-responsive third party donee
               beneficiaries surrendered for factors’ immaterial marginal utility
               value benefit.`
-                .replaceAll("\n", " ")
-                .replaceAll(/[ ]+/g, " ")
-                .replaceAll(" ", " ~/")
-                .split("~/")
-                .reverse()
-                .map((x) => (
-                  <span style={{ margin: "0px 2px" }}>{x}</span>
-                ))}
-            </div>
+                  .replaceAll("\n", " ")
+                  .replaceAll(/[ ]+/g, " ")
+                  .replaceAll(" ", " ~/")
+                  .split("~/")
+                  .reverse()
+                  .map((x) => (
+                    <span
+                      style={{
+                        direction: "ltr",
+                        margin: "0px 2px"
+                      }}
+                    >
+                      {x}
+                    </span>
+                  ))}
+              </div>
+            </span>
             <div
               style={{
                 display:
@@ -668,6 +683,21 @@ class StopPayingMonthly extends React.Component {
             &nbsp; &nbsp;
             <span onClick={() => this.setState({ fanfare: false })}>x</span>
           </span>
+          <div
+            style={{
+              float: "right",
+              display: !this.state.fanfare ? "block" : "none",
+              maxWidth: "100px",
+              width: "90vw",
+              position: "relative",
+              color: "black",
+              fontSize: "12px",
+              top: "0px"
+            }}
+          >
+            Your count of collection document Array is upon resolved promise
+            then
+          </div>
           <span
             style={{
               transition: ".3s ease-in",
