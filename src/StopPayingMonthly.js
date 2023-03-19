@@ -696,7 +696,10 @@ class StopPayingMonthly extends React.Component {
             }}
           >
             Your count of collection document Array is upon resolved promise
-            then
+            then (edit a counter
+            setDoc(doc(getFirestore(firebase),"surnamePrefixCount","only")),
+            {"{prefixCount:increment}"})<br />
+            {"//"}avoid size
           </div>
           <span
             style={{
