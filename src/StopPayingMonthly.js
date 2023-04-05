@@ -628,7 +628,7 @@ class StopPayingMonthly extends React.Component {
                   flexWrap: "wrap-reverse",
                   direction: "rtl",
                   maxWidth: "calc(100vw - 50px)",
-                  maxHeight: "calc(100vw - 50px)",
+                  maxHeight: "calc(100vh - 200px)",
                   width: "max-content",
                   position: "absolute",
                   color: "black",
