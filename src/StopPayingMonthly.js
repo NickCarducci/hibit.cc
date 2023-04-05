@@ -74,6 +74,51 @@ class StopPayingMonthly extends React.Component {
     console.log(this.props.availHeight, this.props.width);
     return (
       <div style={{ width: "100%", maxWidth: "600px" }}>
+        <div
+          style={{
+            backgroundColor: "rgba(240,240,250,.4)",
+            zIndex: "1",
+            display: this.state.fanfare !== "hovPayments" ? "block" : "none",
+
+            width: "max-content",
+            maxWidth: "calc(100% - 50px)",
+            position: "fixed",
+            color: "black",
+            fontSize: "12px",
+            bottom: "170px"
+          }}
+        >
+          no caught runtime exception (results CORS error) usually are undefined
+          <br />
+          webhook{space}
+          <a href="https://www.quora.com/unanswered/Can-you-call-to-resolve-an-asynchronous-function-from-Express-middleware-thats-declared-in-the-Node-js-process-scope">
+            /chute
+          </a>
+          {space}settings (holler) <br />
+          Don't{space}
+          <a href="https://developers.cloudflare.com/pages/platform/api/#make-requests">
+            sweat
+          </a>
+          , your{space}
+          <a href="https://developers.cloudflare.com/fundamentals/api/how-to/make-api-calls/">
+            Bearer
+          </a>
+          {space}token
+          {space}
+          <i
+            onClick={() =>
+              this.setState({ openCloudflare: !this.state.openCloudflare })
+            }
+            style={{ textDecoration: "underline" }}
+          >
+            and your 'X-Auth-Key'
+          </i>
+          {space}is usually{space}
+          <a href="https://developers.cloudflare.com/fundamentals/api/reference/permissions/">
+            your
+          </a>
+          {space}global key
+        </div>
         <span
           //zIndex: "1", i'd rather my foot in your mouth than an A+
           //onClick={() => timeoutThis("firewallplusTimeout")}
@@ -575,12 +620,15 @@ class StopPayingMonthly extends React.Component {
               <div
                 onMouseEnter={() => clearTimeout(this.hovPayments)}
                 style={{
+                  backgroundColor: "rgba(240,240,250,.4)",
+                  overflow: "auto",
                   display:
                     this.state.fanfare === "hovPayments" ? "flex" : "none",
                   justifyContent: "flex-end",
                   flexWrap: "wrap-reverse",
                   direction: "rtl",
-                  maxWidth: "90vw",
+                  maxWidth: "calc(100vw - 50px)",
+                  maxHeight: "calc(100vw - 50px)",
                   width: "max-content",
                   position: "absolute",
                   color: "black",
@@ -629,50 +677,6 @@ class StopPayingMonthly extends React.Component {
                   ))}
               </div>
             </span>
-            <div
-              style={{
-                display:
-                  this.state.fanfare !== "hovPayments" ? "block" : "none",
-                maxWidth: "90vw",
-                width: "max-content",
-                position: "absolute",
-                color: "black",
-                fontSize: "12px",
-                top: "-60px"
-              }}
-            >
-              no caught runtime exception (results CORS error) usually are
-              undefined
-              <br />
-              webhook{space}
-              <a href="https://www.quora.com/unanswered/Can-you-call-to-resolve-an-asynchronous-function-from-Express-middleware-thats-declared-in-the-Node-js-process-scope">
-                /chute
-              </a>
-              {space}settings (holler) <br />
-              Don't{space}
-              <a href="https://developers.cloudflare.com/pages/platform/api/#make-requests">
-                sweat
-              </a>
-              , your{space}
-              <a href="https://developers.cloudflare.com/fundamentals/api/how-to/make-api-calls/">
-                Bearer
-              </a>
-              {space}token
-              {space}
-              <i
-                onClick={() =>
-                  this.setState({ openCloudflare: !this.state.openCloudflare })
-                }
-                style={{ textDecoration: "underline" }}
-              >
-                and your 'X-Auth-Key'
-              </i>
-              {space}is usually{space}
-              <a href="https://developers.cloudflare.com/fundamentals/api/reference/permissions/">
-                your
-              </a>
-              {space}global key
-            </div>
             <a
               onMouseEnter={() => timeoutThis("hovPayments", 5000)}
               href="https://vau.money/docs"
