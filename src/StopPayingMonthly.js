@@ -784,8 +784,10 @@ class StopPayingMonthly extends React.Component {
               email
             </div>
           </div>
-          <div
-            onClick={() => timeoutThis("nodedevTimeout")}
+          <a
+            //node
+            href="https://github.com/NickCarducci/mastercard-backbank-digital-ocean-app"
+            //onClick={() => timeoutThis("nodedevTimeout")}
             style={{
               zIndex: "1",
               userSelect: "none",
@@ -799,18 +801,22 @@ class StopPayingMonthly extends React.Component {
               bottom: "60px"
             }}
           >
-            &infin;{space}
-            {this.state.nodeDevtimeout && (
-              <a
-                style={{ color: "white" }}
-                href="https://github.com/NickCarducci/mastercard-backbank-digital-ocean-app"
-              >
-                node repo
-              </a>
-            )}
-          </div>
-          <div
-            onClick={() => timeoutThis("nodedevTimeout")}
+            <div
+              style={{
+                color: "black",
+                fontSize: "12px",
+                position: "absolute",
+                top: "-10px"
+              }}
+            >
+              node
+            </div>
+            &infin;
+          </a>
+          <a
+            //nginx
+            href="https://github.com/NickCarducci/mastercard-backbank-digital-ocean"
+            //onClick={() => timeoutThis("nodedevTimeout")}
             style={{
               zIndex: "1",
               userSelect: "none",
@@ -824,16 +830,18 @@ class StopPayingMonthly extends React.Component {
               bottom: "20px"
             }}
           >
-            &infin;{space}
-            {this.state.nodeDevtimeout && (
-              <a
-                style={{ color: "white" }}
-                href="https://github.com/NickCarducci/mastercard-backbank-digital-ocean"
-              >
-                nginx repo
-              </a>
-            )}
-          </div>
+            <div
+              style={{
+                color: "black",
+                fontSize: "12px",
+                position: "absolute",
+                top: "-10px"
+              }}
+            >
+              nginx
+            </div>
+            &infin;
+          </a>
         </div>
         <div
           style={{
