@@ -754,6 +754,11 @@ class StopPayingMonthly extends React.Component {
                 fontSize: this.state.emailmigration ? "" : "0px"
               }}
             >
+              5 minutes or{space}
+              <a href="https://improvmx.com" style={{ color: "white" }}>
+                $5/month
+              </a>
+              <br />
               How to migrate emails from iCloud to gmail, and vise versa.
               <br />
               <br />
@@ -1067,3 +1072,4 @@ class StopPayingMonthly extends React.Component {
   }
 }
 export default StopPayingMonthly;
+
