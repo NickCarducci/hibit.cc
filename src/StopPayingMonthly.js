@@ -790,7 +790,7 @@ class StopPayingMonthly extends React.Component {
                 bottom: "-20px"
               }}
             >
-              email
+              email (/1m)
             </div>
           </div>
           <a
@@ -1072,4 +1072,3 @@ class StopPayingMonthly extends React.Component {
   }
 }
 export default StopPayingMonthly;
-
