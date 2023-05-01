@@ -323,7 +323,7 @@ class StopPayingMonthly extends React.Component {
               onClick={this.props.setWhy}
             >
               {this.state.firewallPlustimeout && `  `}
-              why?
+              why? (git)
             </span>
           )}
           <div
@@ -793,9 +793,10 @@ class StopPayingMonthly extends React.Component {
               email (/1m)
             </div>
           </div>
-          <a
+          <div
+            onMouseEnter={() => timeoutThis("buildpack", 5000)}
             //node
-            href="https://github.com/NickCarducci/mastercard-backbank-digital-ocean-app"
+
             //onClick={() => timeoutThis("nodedevTimeout")}
             style={{
               zIndex: "1",
@@ -810,6 +811,18 @@ class StopPayingMonthly extends React.Component {
               bottom: "60px"
             }}
           >
+            <a
+              style={{
+                left: "50px",
+                fontSize: "12px",
+                width: "max-content",
+                display: this.state.fanfare === "buildpack" ? "block" : "none",
+                position: "absolute"
+              }}
+              href="https://docs.digitalocean.com/products/app-platform/reference/buildpacks/nodejs/#nodejs-applications-using-buildpacks"
+            >
+              package.json node_modules no .gitignore
+            </a>
             <div
               style={{
                 color: "black",
@@ -820,8 +833,13 @@ class StopPayingMonthly extends React.Component {
             >
               node
             </div>
-            &infin;
-          </a>
+            <a
+              style={{ color: "white" }}
+              href="https://github.com/NickCarducci/mastercard-backbank-digital-ocean-app"
+            >
+              &infin;
+            </a>
+          </div>
           <a
             //nginx
             href="https://github.com/NickCarducci/mastercard-backbank-digital-ocean"
