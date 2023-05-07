@@ -801,10 +801,17 @@ class StopPayingMonthly extends React.Component {
                 </div>
               </div>
               email (/1m
-              {this.state.emailmigration
-                ? `: don't use takeout for 160 gb drives, just transfer to
-              one account workspace $6/mo`
-                : ""}
+              {this.state.emailmigration ? (
+                <a
+                  style={{ color: "lightskyblue" }}
+                  href="https://admin.google.com/ac/billing/catalog"
+                >
+                  : don't use takeout for 160 gb drives, just transfer to one
+                  account workspace $6/mo
+                </a>
+              ) : (
+                ""
+              )}
               )
             </div>
           </div>
