@@ -807,7 +807,7 @@ class StopPayingMonthly extends React.Component {
                   href="https://admin.google.com/ac/billing/catalog"
                 >
                   : don't use takeout for 160 gb drives, just transfer to one
-                  account workspace $6/mo
+                  account workspace $12/mo
                 </a>
               ) : (
                 ""
@@ -1112,3 +1112,4 @@ class StopPayingMonthly extends React.Component {
   }
 }
 export default StopPayingMonthly;
+
