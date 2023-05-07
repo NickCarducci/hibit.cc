@@ -750,33 +750,6 @@ class StopPayingMonthly extends React.Component {
             }}
           >
             <div
-              style={{
-                fontSize: this.state.emailmigration ? "" : "0px"
-              }}
-            >
-              5 minutes or{space}
-              <a href="https://improvmx.com" style={{ color: "white" }}>
-                $5/month
-              </a>
-              <br />
-              How to migrate emails from iCloud to gmail, and vise versa.
-              <br />
-              <br />
-              1. Open Thunderbird{">"}Tools{">"}Add Ons{"> "}“import export”
-              download the first one.
-              <br />
-              2. Import mbox files to “local folders”.
-              <br />
-              3. Sign into your destination iCloud or Gmail account.
-              <br />
-              4. Copy the mbox folder to your iCloud or Gmail account. (Gmail
-              accounts show up as a label).
-              <br />
-              Before beginning, allow your computer to “not sleep when a
-              screensaver starts” in (Apple icon){">"}preferences{">"}energy
-              saver on Mac.
-            </div>
-            <div
               onClick={() =>
                 this.setState({ emailmigration: !this.state.emailmigration })
               }
@@ -786,11 +759,53 @@ class StopPayingMonthly extends React.Component {
                 borderRadius: "10px",
                 padding: "4px 6px",
                 cursor: "pointer",
-                position: "absolute",
-                bottom: "-20px"
+                position: "fixed",
+                display: "inline-block",
+                bottom: "10px"
               }}
             >
-              email (/1m)
+              <div
+                style={{
+                  position: "relative"
+                }}
+              >
+                <div
+                  style={{
+                    backgroundColor: "rgb(65, 90, 159)",
+                    position: "absolute",
+                    bottom: "0px",
+                    fontSize: this.state.emailmigration ? "" : "0px"
+                  }}
+                >
+                  5 minutes or{space}
+                  <a href="https://improvmx.com" style={{ color: "white" }}>
+                    $5/month
+                  </a>
+                  <br />
+                  How to migrate emails from iCloud to gmail, and vise versa.
+                  <br />
+                  <br />
+                  1. Open Thunderbird{">"}Tools{">"}Add Ons{"> "}“import export”
+                  download the first one.
+                  <br />
+                  2. Import mbox files to “local folders”.
+                  <br />
+                  3. Sign into your destination iCloud or Gmail account.
+                  <br />
+                  4. Copy the mbox folder to your iCloud or Gmail account.
+                  (Gmail accounts show up as a label).
+                  <br />
+                  Before beginning, allow your computer to “not sleep when a
+                  screensaver starts” in (Apple icon){">"}preferences{">"}energy
+                  saver on Mac.
+                </div>
+              </div>
+              email (/1m
+              {this.state.emailmigration
+                ? `: don't use takeout for 160 gb drives, just transfer to
+              one account workspace $6/mo`
+                : ""}
+              )
             </div>
           </div>
           <div
