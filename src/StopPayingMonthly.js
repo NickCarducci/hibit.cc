@@ -735,6 +735,24 @@ class StopPayingMonthly extends React.Component {
           <div
             style={{
               fontSize: "12px",
+              wordWrap: "break-word",
+              zIndex: "1",
+              userSelect: "none",
+              backgroundColor: "rgb(65, 90, 159)",
+              color: "white",
+              borderRadius: "10px",
+              padding: "4px 6px",
+              cursor: "pointer",
+              position: "fixed",
+              left: "150px",
+              bottom: "10px"
+            }}
+          >
+            deepai
+          </div>
+          <div
+            style={{
+              fontSize: "12px",
               width: "calc(100% - 70px)",
               wordWrap: "break-word",
               zIndex: "1",
